@@ -1,0 +1,64 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+
+    "include": [
+		"~/.config/waybar/modules.jsonc"
+	],
+
+    "modules-left": [
+		"clock",
+		"network", 
+		"bluetooth",
+		"hyprland/window"
+	],
+    "modules-center": [
+		"custom/wofi",
+		"hyprland/workspaces",
+		"group/exit",
+		"custom/wol",
+		"custom/updates",
+		"custom/github"
+	],
+    "modules-right": [
+		"custom/media",
+		"group/hardware",
+		"group/audio",
+		"tray",
+		"custom/swaync"
+	],
+
+	// Group Hardware
+	"group/hardware": {
+		"orientation": "horizontal",
+		"modules":[
+			"temperature",
+			"battery",
+			"power-profiles-daemon",
+			"custom/wl-gammarelay-temperature",
+			"backlight"
+		]
+	},
+
+	// Group IO Audio
+	"group/audio": {
+		"orientation": "horizontal",
+		"modules": [
+			"pulseaudio",
+			"pulseaudio#microphone"
+		]
+	},
+
+	// Group Exit
+	"group/exit": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/power_btn",
+			"custom/lock_screen"
+		]
+	}
+}

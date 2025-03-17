@@ -1,0 +1,293 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Fira Code",  FontAwesome;
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0);
+    border-top: 0.5px solid #fffff0;
+    background: rgba(21, 18, 27, 0.6);
+    color: #cdd6f4;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+tooltip {
+    background: rgba(8, 7, 10, 0.8);
+    border-radius: 18px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #11111b;
+}
+
+
+#workspaces {
+    background: rgba(8, 7, 10, 0.6);
+    margin: 5px 5px 5px 5px;
+    padding: 6px 5px;
+    border-radius: 18px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    border: 0.5px solid #032412;
+}
+
+#workspaces button {
+    padding: 0px 5px;
+    margin: 0px 3px;
+    border-radius: 16px;
+    color: #cdd6f4;
+    background-color: #2f354a;
+    transition: all 0.3s ease-in-out;
+}
+
+
+#workspaces button.empty {
+    opacity: 0.4;
+}
+
+#workspaces button.active {
+    color: #2f354a;
+    background-color: #cdd6f4;
+    border-radius: 16px;
+    min-width: 50px;
+    background-size: 400% 400%;
+    transition: all 0.3s ease-in-out;
+    /*opacity: 1.0;*/
+}
+
+#workspaces button.urgent {
+    background-color: #cdd6f4;
+    color: #2f354a;
+    padding: 0 0 0 5px;
+    border-radius: 16px;
+    min-width: 40px;
+    background-size: 300% 300%;
+}
+
+#workspaces button:hover {
+    background-color: #cdd6f4;
+    color: #2f354a;
+    border-radius: 16px;
+    min-width: 50px;
+    background-size: 400% 400%;
+}
+
+#clock,
+#network,
+#bluetooth,
+#window,
+#custom-wofi,
+#custom-power_btn,
+#custom-lock_screen,
+#custom-wol,
+#custom-updates,
+#custom-github,
+#custom-media,
+#power-profiles-daemon,
+#temperature,
+#battery,
+#backlight,
+#custom-wl-gammarelay-temperature,
+#pulseaudio,
+#tray,
+#custom-swaync {
+    background-color: #2f354a;
+    margin: 0 0 0 0;
+    padding: 0px 7px 0px 7px;
+    border-radius: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+}
+
+
+
+/* LEFT MODULES */
+
+
+#clock {
+    color: #fab387;
+    margin-bottom: 8px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#network {
+    border-radius: 18px 0 0 18px;
+    color: #f9e2af;
+}
+
+#bluetooth {
+    border-radius: 0 18px 18px 0px;
+    color: #89b4fa;
+} 
+
+#window {
+    background: #cdd6f4;
+    color: #1e1e2e;
+    border-radius: 18px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+
+
+/* CENTER MODULES */
+
+
+#custom-wofi {
+    opacity: 0.6
+}
+
+#custom-power_btn {
+    color :#664cba;
+    border-radius: 18px 0px 0px 18px;
+}
+
+#custom-lock_screen {
+    color :#a232a8;
+    border-radius: 0px 0px 0px 0px;
+}
+
+#custom-wol {
+    border-radius: 0px 0px 0px 0px;    
+}
+
+#custom-wol.green {
+    color: #a6e3a1;
+}
+
+#custom-wol.red {
+    color: #ba4c90; 
+}
+
+#custom-updates.green {
+    color: #a6e3a1;
+}
+
+#custom-updates.yellow {
+    color: #e8db92;
+}
+
+#custom-updates.red {
+    color: #eba0ac;
+}
+
+#custom-github {
+    border-radius: 0px 18px 18px 0px;
+}
+
+#custom-github.green {
+    color: #a6e3a1;
+}
+
+#custom-github.yellow {
+    color: #e8db92;
+}
+
+#custom-github.red {
+    color: #eba0ac;
+}
+
+
+
+/* RIGHT MODULES */
+
+
+#custom-media {
+    padding-right: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#custom-media.custom-spotify {
+    color: #1db954;
+}
+
+#temperature {
+    color: #8be9fd;
+    border-radius: 18px 0px 0px 18px;
+}
+
+#temperature.critical {
+    color: #eba0ac;
+}
+
+#battery {
+    border-radius: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 7px;
+    color: #a6e3a1;
+}
+
+#battery.warning {
+    color: #e8db92;
+}
+
+#battery.critical {
+    color: #eba0ac;
+}
+
+#power-profiles-daemon{
+    border-radius: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 7px;
+}
+
+#power-profiles-daemon.power-saver{
+    color: #a6e3a1;
+}
+
+#power-profiles-daemon.balanced{
+    color: #8be9fd;
+}
+
+#power-profiles-daemon.performance{
+    color: #e8db92;
+}
+
+#custom-wl-gammarelay-temperature {
+    border-radius: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 7px;
+    color: #d99280;
+}
+
+#backlight {
+    border-radius: 0px 18px 18px 0px;
+    margin-right: 5px
+}
+
+#pulseaudio {
+    border-radius: 18px 0 0 18px;
+    color: #89b4fa;
+}
+
+#pulseaudio.microphone {
+    border-radius: 0 18px 18px 0;
+    color: #cba6f7;
+    margin-right: 5px;
+}
+
+#tray {
+    border-radius: 18px 0 0 18px;
+}
+
+#custom-swaync {
+    border-radius: 0px 18px 18px 0px;
+    margin-right: 5px;
+}
+
+#custom-updates {
+    border-radius: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 7px;
+}
