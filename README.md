@@ -224,7 +224,7 @@ Instructions in the waybar [wiki](https://github.com/Alexays/Waybar/wiki/Module:
 
 ## Themes
 
-I tried to base it off this color scheme, but I'm not really good with that, if someone who knows colors could help I'd be very thankful :). 
+I tried to base it off this [color scheme](https://color.adobe.com/it/olor-Theme-color-theme-18068611/), but I'm not really good with that, if someone who knows colors could help I'd be very thankful :). 
 
 I use [squared theme](https://www.gnome-look.org/p/2206255) for gtk, and [ant-dark](https://store.kde.org/p/1640981/) icons theme. To add themes and icon themes download and unzip theme respectively in ```~/.themes``` and ```~/.local/share/icons```, use this last directory to store cursor icons (i use my oshi [Rin Penrose](https://www.gnome-look.org/p/2260618)'s)
 
