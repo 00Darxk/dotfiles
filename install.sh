@@ -1,47 +1,9 @@
 #!/bin/bash
 
 # The following will attempt to install all needed packages to run Hyprland
+# Packages and a description can be found on https://github.com/00Darxk/dotfiles?tab=readme-ov-file#dependencies
 # This is a quick and dirty script there are no error checking
 # This script is meant to run on a clean fresh system
-#
-# Below is a list of the packages that would be installed
-#   TODO add description of packages
-# hyprland: This is the Hyprland compositor
-# kitty: This is the default terminal
-# waybar: Waybar now has hyprland support
-# swaybg: This is used to set a desktop background image
-# swaylock-effects: This allows for the locking of the desktop its a fork that adds some editional visual effects
-# wofi: This is an application launcher menu
-# wlogout: This is a logout menu that allows for shutdown, reboot and sleep
-# swaync: This is a graphical notification daemon
-# thunar: This is a graphical file manager
-# ttf-jetbrains-mono-nerd: Som nerd fonts for icons and overall look
-# noto-fonts-emoji: fonts needed by the weather script in the top bar
-# polkit-gnome: needed to get superuser access on some graphical appliaction
-# starship: allows to customize the shell prompt
-# swappy: This is a screenshot editor tool
-# grim: This is a screenshot tool it grabs images from a Wayland compositor
-# slurp: This helps with screenshots, it selects a region in a Wayland compositor
-# pamixer: This helps with audio settings such as volume
-# brightnessctl: used to control monitor bright level
-# gvfs: adds missing functionality to thunar such as automount usb drives
-# bluez: the bluetooth service
-# bluez-utils: command line utilities to interact with bluettoth devices
-# nwg-look: used to set GTK theme
-# xfce4-settings: set of tools for xfce, needed to set GTK theme
-# dracula-gtk-theme: the Dracula theme, it fits the overall look and feel
-# dracula-icons-git: set of icons to go with the Dracula theme
-# xdg-desktop-portal-hyprland: xdg-desktop-portal backend for hyprland
-# wl-gammarelay: a client and deamon for changing color temperature and brightness under wayland
-# hyfetch: neofetch with lgbtq+ flags
-# power-profiles-daemon: lets you switch power profiles on the machine
-# sddm: login manager
-# ttf-fira-code: cool coding font
-# ttf-font-awesome: fonts for waybar icons
-# otf-font-awesome: fonts for waybar icons
-# wol: utility to wake on lan a machine
-# jq: cli json processor, to format text for custom waybar modules
-
 
 #### Check for yay ####
 ISYAY=/sbin/yay
@@ -70,14 +32,12 @@ read -n1 -rep 'Would you like to install the packages? (y,n)' INST
 if [[ $INST == "Y" || $INST == "y" ]]; then
     yay -S --noconfirm hyprland kitty waybar \
     swaybg swaylock-effects wofi wlogout swaync thunar \
-    ttf-jetbrains-mono-nerd noto-fonts-emoji \
-    polkit-gnome starship \
+    ttf-jetbrains-mono-nerd polkit-gnome starship \
     swappy grim slurp pamixer brightnessctl gvfs \
     bluez bluez-utils nwg-look xfce4-settings \
     dracula-gtk-theme dracula-icons-git xdg-desktop-portal-hyprland \
     wl-gammarelay hyfetch power-profiles-daemon sddm \
-    ttf-fira-code ttf-font-awesome otf-font-awesome \
-    jq \
+    ttf-fira-code ttf-font-awesome jq fzf btop \
 
     # Start the bluetooth service
     echo -e "Starting the Bluetooth Service...\n"
@@ -102,28 +62,20 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp -R wofi ~/.config/
     cp hyfetch.json ~/.config/
 
-    # Set some files as exacutable 
+    # Set some files as exactable 
     chmod +x ~/.config/hypr/xdg-portal-hyprland
-    chmod +x ~/.config/waybar/scripts/connectssh.sh
-    chmod +x ~/.config/waybar/scripts/github.sh
-    chmod +x ~/.config/waybar/scripts/installupdates.sh
-    chmod +x ~/.config/waybar/scripts/launch.sh
-    chmod +x ~/.config/waybar/scripts/mediaplayer.py
-    chmod +x ~/.config/waybar/scripts/sysmaintenance.sh
-    chmod +x ~/.config/waybar/scripts/tailscaleinfo.sh
-    chmod +x ~/.config/waybar/scripts/updates.sh
-    chmod +x ~/.config/waybar/scripts/wol.sh
+    chmod +x ~/.config/waybar/scripts/*
 fi
 
 ### Configure WoL in waybar ### TODO test and configure correctly
-read -n1 -rep 'Would you like to configure wake on lan with waybar? (y,n)' WOL
+read -n1 -rep 'Would you like to install and configure wake on lan with waybar? (y,n)' WOL
 if [[ $WOL == "Y" || $WOL == "y" ]]; then
     yay -S --noconfirm wol
     mkdir -p "~/.secrets"
     read -p "Enter IP Address: " IPAddress
     read -p "Enter MAC Address: " MACAddress
-    echo "$IPAddress" > ~/.secrets/ip-address.txt
-    echo "$MACAddress" > ~/.secrets/mac-address.txt
+    echo -e "$IPAddress" > ~/.secrets/ip-address.txt
+    echo -e "$MACAddress" > ~/.secrets/mac-address.txt
 fi
 
 ### Configure tailscale in waybar ### TODO test and configure correctly
@@ -133,10 +85,11 @@ if [[ $TAIL == "Y" || $TAIL == "y" ]]; then
     yay -S --noconfirm tailscale
     mkdir -p "~/.secrets"
     read -p "Enter hostname: " hostname
-    echo "$hostname" > ~/.secrets/hostname.txt
-    echo "Enable tailscale:"
+    echo -e "$hostname" > ~/.secrets/hostname.txt
+    echo -e "Enable tailscale:"
     sudo systemctl enable --now tailscaled
-    echo "After installation connect the machine to your tailscale network with sudo tailscale up"
+    echo -e "Connecting to your tailscale network..."
+    sudo tailscale up
 fi
 
 
@@ -151,11 +104,14 @@ if [[ $STAR == "Y" || $STAR == "y" ]]; then
     cp starship.toml ~/.config/
 fi
 
-### Install applications ###
-read -n1 -rep 'Would you like to install applications (not recommended)? (y,n)' APP
+### Install optionals programs ###
+read -n1 -rep 'Would you like to install optional programs? (y,n)' APP
 if [[ $APP == "Y" || $APP == "y" ]]; then
     yay -S --noconfirm telegram-desktop notion-app-electron \
     discord steam spotify-launcher chromium vscodium-bin \
+    whatdesk-bin \
+
+fi
 
 
 ### Script is done ###

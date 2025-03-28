@@ -115,7 +115,6 @@ tooltip {
 
 #clock {
     color: #fab387;
-    margin-bottom: 8px;
     margin-right: 5px;
     margin-left: 5px;
 }
@@ -152,12 +151,12 @@ window#waybar.empty #window {
 }
 
 #custom-power_btn {
-    color :#664cba;
+    color :#9c8bfd;
     border-radius: 18px 0px 0px 18px;
 }
 
 #custom-lock_screen {
-    color :#a232a8;
+    color :#9c8bfd;
     border-radius: 0px 0px 0px 0px;
 }
 
@@ -170,7 +169,7 @@ window#waybar.empty #window {
 }
 
 #custom-wol.red {
-    color: #ba4c90; 
+    color: #fd8b9e; 
 }
 
 #custom-updates.green {

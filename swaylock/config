@@ -1,4 +1,4 @@
-image=~/Immagini/mondstat-at-night.jpg
+image=~/.config/hypr/moon-over-mondstat.jpg
 daemonize
 show-failed-attempts
 clock

@@ -7,86 +7,11 @@
             "(.*) - Thunar": " $1",
             "(.*) - Discord": " $1",
             "Steam": " Steam",
-            "(.*) - Telegram": " $1"
+            "(.*) - Telegram": " $1",
+            "WhatsDesk": " WhatsDesk"
         },
         "icon": false,
         "separate-output": true
-    },
-
-    "custom/power_btn": {
-            "format" : "{icon}",
-            "format-icons": [""],
-            //"on-click": "sh -c'(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-            "on-click": "wlogout --protocol layer-shell",
-            "tooltip-format": "Opzioni di Spegnimento",
-            "tooltip": true
-    },
-
-    "custom/lock_screen": {
-        "format": "{icon}",        
-        "format-icons": [""],
-        "on-click": "swaylock",
-        "tooltip-format": "Schermata di Blocco",
-        "tooltip": true
-    },
-
-    "custom/updates": {
-        //"format": " {}",
-        "format": " {}",
-        "tooltip-format": "Aggiorna il Sistema\n<small>Pacchetti: {}</small>",
-        "escape": true,
-        "return-type": "json",
-        "exec": "~/.config/waybar/scripts/updates.sh",
-        "restart-interval": 60,
-        "on-click": "kitty sh -c ~/.config/waybar/scripts/installaupdates.sh",
-        "tooltip": true
-    },
-
-    "custom/wol": {
-        "format": "{icon}",
-        "format-icons": [""],
-        "tooltip-format": "Sveglia e Connetti ad Host:\n<small>{}</small>",
-        "escape": true,
-        "return-type":"json",
-        "exec":"~/.config/waybar/scripts/tailscaleinfo.sh",
-        "interval": 60,
-        "on-click": "~/.config/waybar/scripts/wol.sh",
-        "on-click-right": "kitty sh -c ~/.config/waybar/scripts/connectssh.sh",
-        "tooltip": true
-    },
-
-    "custom/swaync": {
-        "format" : "{icon}",
-        "format-icons": {
-            "notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
-            "none": " ",
-            "dnd-notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
-            "dnd-none": " "
-        },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "sleep 0.1 && swaync-client -t -sw",
-        "escape": true,
-        "tooltip": false
-    }, 
-
-    "custom/github": {
-        "format": " {}",
-        "tooltip-format": "Notifiche GitHub",
-        "return-type": "json",
-        "interval": 60,
-        "exec": "~/.config/waybar/scripts/github.sh",
-        "on-click": "xdg-open https://github.com/notifications",
-        "tooltip": true
-    },
-
-    "custom/wofi": {
-        "format": "{icon} Cerca",
-        "format-icons": [""],
-        "tooltip-format": "Applicazioni",
-        "on-click": "wofi"
-
     },
 
     "hyprland/workspaces": {
@@ -139,17 +64,6 @@
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
         "tooltip-format": "Luminosità",
-        "tooltip": true
-    },
-
-    "custom/wl-gammarelay-temperature": {
-        "format": "{} {icon}",
-        "format-alt": "{icon}", 
-        "format-icons": [""],
-        "exec": "wl-gammarelay --subscribe Temperature",
-        "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
-        "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100",
-        "tooltip-format": "Temperatura Schermo: {} K",
         "tooltip": true
     },
 
@@ -217,6 +131,7 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnesso 󰌙",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "interval": 1,
         "max-length": 30
     },
 
@@ -228,6 +143,105 @@
 	    "tooltip-format-connected": " {device_enumerate}",
 	    "tooltip-format-enumerate-connected": "{device_alias}",
         "on-click": "rfkill toggle bluetooth"
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon} ",
+        "tooltip-format": "Opzione di Risparmio: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+          "default": "",
+          "performance": "",
+          "balanced": "",
+          "power-saver": ""
+        }
+    },
+
+    "custom/power_btn": {
+        "format" : "{icon}",
+        "format-icons": [""],
+        //"on-click": "sh -c'(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+        "on-click": "wlogout --protocol layer-shell",
+        "tooltip-format": "Opzioni di Spegnimento",
+        "tooltip": true
+    },
+
+    "custom/lock_screen": {
+        "format": "{icon}",        
+        "format-icons": [""],
+        "on-click": "swaylock",
+        "tooltip-format": "Schermata di Blocco",
+        "tooltip": true
+    },
+
+    "custom/updates": {
+        //"format": " {}",
+        "format": " {}",
+        "tooltip-format": "Aggiorna il Sistema\n<small>Pacchetti: {}</small>",
+        "escape": true,
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/updates.sh",
+        "restart-interval": 3600,
+        "on-click": "kitty sh -c ~/.config/waybar/scripts/installaupdates.sh",
+        "tooltip": true
+    },
+
+    "custom/wol": {
+        "format": "{icon}",
+        "format-icons": [""],
+        "tooltip-format": "Sveglia e Connetti ad Host:\n<small>{}</small>",
+        "escape": true,
+        "return-type":"json",
+        "exec":"~/.config/waybar/scripts/tailscaleinfo.sh",
+        "interval": 60,
+        "on-click": "~/.config/waybar/scripts/wol.sh",
+        "on-click-right": "kitty sh -c ~/.config/waybar/scripts/connectssh.sh",
+        "tooltip": true
+    },
+
+    "custom/swaync": {
+        "format" : "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+            "none": " ",
+            "dnd-notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+            "dnd-none": " "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "escape": true,
+        "tooltip": false
+    }, 
+
+    "custom/github": {
+        "format": " {}",
+        "tooltip-format": "Notifiche GitHub",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "~/.config/waybar/scripts/github.sh",
+        "on-click": "xdg-open https://github.com/notifications",
+        "tooltip": true
+    },
+
+    "custom/wofi": {
+        "format": "{icon} Cerca",
+        "format-icons": [""],
+        "tooltip-format": "Applicazioni",
+        "on-click": "wofi"
+
+    },
+
+    "custom/wl-gammarelay-temperature": {
+        "format": "{} {icon}",
+        "format-alt": "{icon}", 
+        "format-icons": [""],
+        "exec": "wl-gammarelay --subscribe Temperature",
+        "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
+        "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100",
+        "tooltip-format": "Temperatura Schermo: {} K",
+        "tooltip": true
     },
 
     "custom/media": {
@@ -243,17 +257,5 @@
         "exec": "~/.config/waybar/scripts/mediaplayer.py", // Script in resources/custom_modules folder
         "tooltip": true,
         "tooltip-format": "{}"
-    },
-
-    "power-profiles-daemon": {
-        "format": "{icon} ",
-        "tooltip-format": "Opzione di Risparmio: {profile}\nDriver: {driver}",
-        "tooltip": true,
-        "format-icons": {
-          "default": "",
-          "performance": "",
-          "balanced": "",
-          "power-saver": ""
-        }
     }
 }
