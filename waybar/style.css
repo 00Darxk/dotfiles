@@ -124,6 +124,12 @@ tooltip {
     color: #f9e2af;
 }
 
+#network.disabled {
+    border-radius: 18px 0 0 18px;
+    color: #f9e2af;
+}
+
+
 #bluetooth {
     border-radius: 0 18px 18px 0px;
     color: #89b4fa;

@@ -3,19 +3,19 @@ threshhold_yellow=15
 threshhold_red=100
 
 # -------------------------------------------------------
-# Calculate the available updates pacman and aur (with trizen)
+# Calculate the available updates pacman and aur (with yay)
 # -------------------------------------------------------
 
 # TODO aggiungere lista degli aggiornamenti a tooltip
 # devono essere sulla stessa linea, separati da un "\n"
 #list_updates_arch=$(checkupdates);
-#list_updates_aur=$(trizen -Su --aur --quiet);
+#list_updates_aur=$(yay -Qua);
 
 if ! updates_arch=$(checkupdates | wc -l); then
     updates_arch=0
 fi
 
-if ! updates_aur=$(trizen -Su --aur --quiet | wc -l); then
+if ! updates_aur=$(yay -Qua | wc -l); then
     updtates_aur=0
 fi
 

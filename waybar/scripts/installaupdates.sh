@@ -1,6 +1,8 @@
 echo "Lista aggiornamenti pacman":
-pacman -Qu
-echo "Scarico..."
-sudo pacman -Syu
+checkupdates
 echo "Lista aggiornamenti AUR":
-trizen -Su --aur --quiet
+yay -Qua
+read -n1 -rep 'Scaricare aggiornamenti? (s,n)' UPD
+if [[ $UPD == "Y" || $UPD == "y" ]]; then
+    yay -Syu
+fi

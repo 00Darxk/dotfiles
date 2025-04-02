@@ -1,35 +1,41 @@
 {
     "label" : "lock",
     "action" : "swaylock",
-    "text" : "Schermata di Blocco"
+    "text" : "Schermata di Blocco",
+    "keybind": "l"
 }
 
 {
     "label" : "hibernate",
     "action" : "systemctl hibernate",
-    "text" : "Ibernazione"
+    "text" : "Ibernazione",
+    "keybind": "h"
 }
 
 {
     "label" : "logout",
     "action" : "hyprctl dispatch exit 0",
-    "text" : "Disconnessione"
+    "text" : "Disconnessione",
+    "keybind": "e"
 }
 
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff",
-    "text" : "Arresto"
+    "text" : "Arresto",
+    "keybind": "s"
 }
 
 {
     "label" : "suspend",
-    "action" : "systemctl suspend",
-    "text" : "Sospensione"
+    "action" : "swaylock && systemctl suspend",
+    "text" : "Sospensione",
+    "keybind": "u"
 }
 
 {
     "label" : "reboot",
     "action" : "systemctl reboot",
-    "text" : "Riavvio"
+    "text" : "Riavvio",
+    "keybind": "r"
 }

@@ -6,7 +6,7 @@
 _I like rice, but i prefer pasta_    
 
 > [!NOTE]
-> This rice is heavily inspired (copied) from [SolDoesTech](https://github.com/soldoestech)'s hyprland repos, check those if you'd like a probably better tested config. If there are any issues with the [hyprland](https://wiki.hyprland.org/) and [waybar](https://github.com/Alexays/Waybar/wiki/) configuration, before opening an issue, check with the wikis as i have no idea what i'm doing, also don't trust random installation scripts online :). If there are issues with the installation scripts report it here ty. 
+> This rice is heavily inspired (copied) from [SolDoesTech](https://github.com/soldoestech)'s hyprland repos, check those if you'd like a probably better tested config. It also uses config taken from [klpod0s](https://github.com/klpod221/klpod0s). If there are any issues with the [hyprland](https://wiki.hyprland.org/) and [waybar](https://github.com/Alexays/Waybar/wiki/) configuration, before opening an issue, check with the wikis as i have no idea what i'm doing, also don't trust random installation scripts online :). If there are issues with the installation scripts report it here ty. 
 
 Clone the repository to copy and use these configuration files. 
 
@@ -44,9 +44,7 @@ Below a table of each package that should be installed, and its purpose. If you 
 | `kitty`                   | Default terminal |
 | `waybar`                  | Customizable Wayland bar |
 | `swaybg`                  | Used to set a desktop background image |
-| `swaylock-effects`        | Allow to lock the screen, fork that adds visual effects |
 | `wofi`                    | Application launcher menu |
-| `wlogout`                 | Logout menu |
 | `swaync`                  | Graphical notification daemon |
 | `thunar`                  | Graphical file manager |
 | `ttf-jetbrains-mono-nerd` | Some nerd fonts for icons and overall look |
@@ -55,7 +53,7 @@ Below a table of each package that should be installed, and its purpose. If you 
 | `swappy`                  | Screenshot editor tool |
 | `grim`                    | Screenshot tool, it grabs images from a Wayland compositor |
 | `slurp`                   | Selects a region in a Wayland compositor, used to screenshot |
-| `paximer`                 | Pulseaudio command line mixer |
+| `pamixer`                 | Pulseaudio command line mixer |
 | `brightnessctl`           | Program to read and contro device brightness |
 | `gvfs`                    | Adds missing feature to thunar |
 | `bluez`                   | Bluetooth protocol stack |
@@ -78,15 +76,18 @@ Below a table of each package that should be installed, and its purpose. If you 
 | `spotify-launcher`        | Client for spotify's apt repository |
 | `chromium`                | Web browser |
 | `tailscale`               | Mesh VPN |
+| `fzf`                     | CLI fuzzy finder |
 
 
 ```sh
-pacman -S hyprland kitty waybar swaybg swaylock-effects wofi wlogout swaync thunar ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp paximer brightnessctl gvfs bluez bluez-utils nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop discord steam spotify-launcher chromium tailscale
+pacman -S hyprland kitty waybar swaybg wofi swaync thunar ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp pamixer brightnessctl gvfs bluez bluez-utils nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop discord steam spotify-launcher chromium tailscale fzf
 ```
 
 #### AUR packages
 | Package | Description |
 | ------- | ----------- |
+| `wlogout`                 | Logout menu |
+| `swaylock-effects`        | Allow to lock the screen, fork that adds visual effects |
 | `dracula-gtk-theme`       | Default theme |
 | `dracula-icons-git`       | Default icons |
 | `sddm-eucalyptus-drop`    | Sddm theme    |
@@ -95,7 +96,7 @@ pacman -S hyprland kitty waybar swaybg swaylock-effects wofi wlogout swaync thun
 | `whatsdesk-bin`           | Unofficial client of Whatsapp
 
 ```sh
-yay -S dracula-gtk-theme dracula-icons-git sddm-eucalyptus-drop notion-app-electron vscodium-bin whatsdesk-bin
+yay -S wlogout swaylock-effects dracula-gtk-theme dracula-icons-git sddm-eucalyptus-drop notion-app-electron vscodium-bin whatsdesk-bin
 ```
 Or your AUR helper of choice. 
 
@@ -105,13 +106,14 @@ Here is a list of useful and funny packages:
 
 | Package | Description |
 | ------- | ----------- |
-| `fzf`   | CLI fuzzy finder |
 | `cowsay` | Configurable talking cow |
 | `fortune-mod` | Fortune cookie program from BSG games |
 | `pipes.sh`<sup>AUR</sup> | Animated pipes terminal screensaver |
+| `imagemagick` | An image viewing/manipulation program |
+| `inkscape` | Professional vector graphics editor |
 
 ```sh
-yay -S fzf cowsay fortune-mod pipes.sh
+yay -S cowsay fortune-mod pipes.sh imagemagick inkscape
 ```
 
 ### Config
@@ -139,7 +141,7 @@ chmod +x ~/.config/waybar/scripts/*
 Enables services:
 ```bash
 sudo systemctl enable tailscaled
-sudo systemctl enable --now bluetooth.service
+sudo systemctl enable bluetooth.service
 ```
 
 See [WoL and Tailscale](#wake-on-lan-and-tailscale-module) and [GitHub Notification](#github-notifications-module) section to manually configure the modules. 
@@ -152,32 +154,33 @@ See [WoL and Tailscale](#wake-on-lan-and-tailscale-module) and [GitHub Notificat
 
 You can check the keybinds in the [hyprland config](./hypr/hyprland.conf), or on the table below. It contains explicit keybinds for F1 to F6 function keys and multimedia keys, although they should all work out of the box; if there are issues check your keyboard on the [wiki](https://wiki.archlinux.org/title/Extra_keyboard_keys). 
 
-| Keybind                  | Action                                            |
-| ------------------------ | ------------------------------------------------- |
-| `Win+Q`                  | Open Kitty terminal                               |
-| `Win+W`                  | Kill active window                                |
-| `Win+L`                  | Lock the screen, using swaylock                   |
-| `Win+M`                  | Show the logout screen, using wlogout             |
-| `Win+Shift+M`            | Exit the Hyrpland environment                     |
-| `Win+V`                  | Toggle on/off floating for the active window      |
-| `Win+Space`              | Show the graphical app launcher wofi              |
-| `Win+S`                  | Take a screenshot                                 |
-| `Win+Shift+B`            | Reload waybar                                     |
-| `Win+1~9`                | Open Thunar (1), WhatsDesk (2), Chromium (3), Discord (4), Telegram Desktop (5), Steam (6), none (7), VSCodium (8), Spotify Launcher (9) |
-| `Win+Ctrl+0`             | Reset screen temperature to 6500K                 |
-| `Win+Ctrl+Up`            | Increase screen temperature by 500K               |
-| `Win+Ctrl+Down`          | Decrease screen temperature by 500K               |
-| `Win+Up/Down/Left/Right` | Move through the active workspace                 |
-| `Alt+Tab`                | Cycle through windows on same workspace           |
-| `Alt+Shift+Tab`          | Cycle through windows on same workspace (reverse) |
-| `Win+Tab`                | Switches to previous active workspace             |
-| `Win+F1~F12`             | Change to **n**th workspace, up to 12             |
-| `Win+Shift+F1~F12`       | Move current window to **n**th workspace, up to 12|
-| `Win+Scroll-Down/Up`     | Scroll through existing workspaces                |
-| `Win+LMB`                | Move window with dragging                         |
-| `Win+RMB`                | Resize window with dragging                       |
-| `Win+Shift+Space+1~4`      | Change background to [Moon Over Mondstat](./hypr/moon-over-mondstat.jpg) (1), [Sucrose](./hypr/sucrose.jpg) (2), [Sayu Birthday Without Characters](./hypr/sayu-without-char.jpg) (3), [Xiao](./hypr/xiao.jpg) (4) |
-
+| Keybind                                        | Action                                            |
+| ---------------------------------------------- | ------------------------------------------------- |
+| <kbd>Super</kbd>+<kbd>Q</kbd>                  | Open Kitty terminal                               |
+| <kbd>Super</kbd>+<kbd>W</kbd>                  | Kill active window                                |
+| <kbd>Super</kbd>+<kbd>L</kbd>                  | Lock the screen, using swaylock                   |
+| <kbd>Super</kbd>+<kbd>M</kbd>                  | Show the logout screen, using wlogout             |
+| <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> | Exit the Hyrpland environment                     |
+| <kbd>Super</kbd>+<kbd>V</kbd>                  | Toggle on/off floating for the active window      |
+| <kbd>Super</kbd>+<kbd>P</kbd>                  | Toggle pseudo-tiling                              |
+| <kbd>Super</kbd>+<kbd>J</kbd>                  | Toggle split
+| <kbd>Super</kbd>+<kbd>Space</kbd>              | Show the graphical app launcher wofi              |
+| <kbd>Super</kbd>+<kbd>S</kbd>                  | Take a screenshot                                 |
+| <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> | Reload waybar                                     |
+| <kbd>Super</kbd>+<kbd>[1~9]</kbd>              | Open Thunar (1), WhatsDesk (2), Chromium (3), Discord (4), Telegram Desktop (5), Steam (6), none (7), VSCodium (8), Spotify Launcher (9) |
+| <kbd>Super</kbd>+<kbd>Ctrl</kbd>+<kbd>0</kbd>  | Reset screen temperature to 6500K                 |
+| <kbd>Super</kbd>+<kbd>Ctrl</kbd>+<kbd>↑</kbd>  | Increase screen temperature by 500K               |
+| <kbd>Super</kbd>+<kbd>Ctrl</kbd>+<kbd>↓</kbd>  | Decrease screen temperature by 500K               |
+| <kbd>Super</kbd>+<kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd> | Move through the active workspace |
+| <kbd>Alt</kbd>+<kbd>Tab</kbd>                  | Cycle through windows on same workspace           |
+| <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>Tab</kbd> | Cycle through windows on same workspace (reverse) |
+| <kbd>Super</kbd>+<kbd>Tab</kbd>                | Switches to previous active workspace             |
+| <kbd>Super</kbd>+<kbd>[F1~F12]</kbd>           | Change to **n**th workspace, up to 12             |
+| <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>[F1~F12]</kbd> | Move current window to **n**th workspace, up to 12|
+| <kbd>Super</kbd>+<kbd>Scroll↑</kbd><kbd>Scroll↓</kbd> | Scroll through existing workspaces         |
+| <kbd>Super</kbd>+<kbd>LMB</kbd>                | Move window with dragging                         |
+| <kbd>Super</kbd>+<kbd>RMB</kbd>                | Resize window with dragging                       |
+| <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd>+<kbd>[1~4]</kbd>    | Change background to [Moon Over Mondstat](./hypr/moon-over-mondstat.jpg) (1), [Sucrose](./hypr/sucrose.jpg) (2), [Sayu Birthday Without Characters](./hypr/sayu-without-char.jpg) (3), [Xiao](./hypr/xiao.jpg) (4) |
 
 ### Wallpapers
 
@@ -193,7 +196,7 @@ You can check the keybinds in the [hyprland config](./hypr/hyprland.conf), or on
 
 </div>
 
-Credit to [Shade of a cat](https://shadeofacat.carrd.co/) and [Sevenics](https://www.deviantart.com/sevenics) for the amazing arts! 
+Credit to [Shade of a cat](https://shadeofacat.carrd.co/) and [Sevenics](https://www.deviantart.com/sevenics) for the amazing art! 
 > [!NOTE]
 > I don't remember why I converted all the backgrounds from png to jpg, it should work either way. Too lazy to check the wiki. 
 
@@ -222,6 +225,10 @@ To WoL left-click the module, to ssh right-click it; the color of the module sho
 
 Instructions in the waybar [wiki](https://github.com/Alexays/Waybar/wiki/Module:-Custom:-Simple#github-notifications). Place the ```notifications.token``` inside the ```.secrets``` folder. 
 
+## Wlogout
+
+This configuration is *almost* entirely taken from [klpod0s](https://github.com/klpod221/klpod0s), an aestethic, dynamic and minimal configuration for hyprland; just changed the color theme and tweaked a bit. 
+
 ## Themes
 
 I tried to base it off this [color scheme](https://color.adobe.com/it/olor-Theme-color-theme-18068611/), but I'm not really good with that, if someone who knows colors could help I'd be very thankful :). 
@@ -247,4 +254,4 @@ For `sddm` I use the [eucalyptus-drop](https://gitlab.com/Matt.Jolly/sddm-eucaly
 
 # See Also
 
-[SolDoesTech](https://github.com/soldoestech)'s hyprland configs, the [hyprland](https://wiki.hyprland.org/) and [waybar](https://github.com/Alexays/Waybar/wiki/) wikis. [Shade of a cat](https://shadeofacat.carrd.co/) and [Sevenics](https://www.deviantart.com/sevenics) amazing art. 
+[SolDoesTech](https://github.com/soldoestech)'s hyprland configs and [klpod221's klpod0s](https://github.com/klpod221/klpod0s) configs, the [hyprland](https://wiki.hyprland.org/) and [waybar](https://github.com/Alexays/Waybar/wiki/) wikis. [Shade of a cat](https://shadeofacat.carrd.co/) and [Sevenics](https://www.deviantart.com/sevenics) amazing art. 

@@ -150,7 +150,7 @@
         "tooltip-format": "Opzione di Risparmio: {profile}\nDriver: {driver}",
         "tooltip": true,
         "format-icons": {
-          "default": "",
+          "default": "",
           "performance": "",
           "balanced": "",
           "power-saver": ""
@@ -183,6 +183,7 @@
         "exec": "~/.config/waybar/scripts/updates.sh",
         "restart-interval": 3600,
         "on-click": "kitty sh -c ~/.config/waybar/scripts/installaupdates.sh",
+        "on-click-right": "kitty sh -c ~/.config/waybar/scripts/listpackages.sh",
         "tooltip": true
     },
 
