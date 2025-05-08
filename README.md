@@ -15,7 +15,7 @@ git clone https://github.com/00Darxk/dotfiles.git
 cd dotfiles
 ```
 
-I will make another branch, and move the italian version there. For now you'll need to make the changes yourself to change the language in these configs: [installupdates.sh](./waybar/scripts/installaupdates.sh),  [hyprland.conf](./hypr/hyprland.conf) under input select your keyboard layout, [waybar](/waybar/modules.jsonc) modules, [wlogout](./wlogout/layout), [wofi](./wofi/config), [starship.toml](./starship.toml). These changes are purely aesthetics. 
+I will make another branch, and move the italian version there. For now you'll need to make the changes yourself to change the language in these configs: [installupdates.sh](./waybar/scripts/installaupdates.sh),  [hyprland.conf](./hypr/hyprland.conf) under input select your keyboard layout, [waybar](/waybar/modules.jsonc) modules, [wlogout](./wlogout/layout), [rofi](./rofi/config.rasi), [starship.toml](./starship.toml). These changes are purely aesthetics. 
 
 # Installation
 
@@ -44,7 +44,7 @@ Below a table of each package that should be installed, and its purpose. If you 
 | `kitty`                   | Default terminal |
 | `waybar`                  | Customizable Wayland bar |
 | `swaybg`                  | Used to set a desktop background image |
-| `wofi`                    | Application launcher menu |
+| `rofi-wayland`            | A window switcher, application launcher and dmenu replacement |
 | `swaync`                  | Graphical notification daemon |
 | `thunar`                  | Graphical file manager |
 | `ttf-jetbrains-mono-nerd` | Some nerd fonts for icons and overall look |
@@ -80,7 +80,7 @@ Below a table of each package that should be installed, and its purpose. If you 
 
 
 ```sh
-pacman -S hyprland kitty waybar swaybg wofi swaync thunar ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp pamixer brightnessctl gvfs bluez bluez-utils nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop discord steam spotify-launcher chromium tailscale fzf
+pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp pamixer brightnessctl gvfs bluez bluez-utils nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop discord steam spotify-launcher chromium tailscale fzf
 ```
 
 #### AUR packages
@@ -126,7 +126,7 @@ cp -R neofetch ~/.config/
 cp -R swaylock ~/.config/
 cp -R waybar ~/.config/
 cp -R wlogout ~/.config/
-cp -R wofi ~/.config/
+cp -R rofi ~/.config/
 cp hyfetch.json ~/.config/
 cp .bashrc ~/.config/
 cp starship.toml ~/.config/
@@ -152,10 +152,21 @@ See [WoL and Tailscale](#wake-on-lan-and-tailscale-module) and [GitHub Notificat
 
 ### Keybindings
 
-You can check the keybinds in the [hyprland config](./hypr/hyprland.conf), or on the table below. It contains explicit keybinds for F1 to F6 function keys and multimedia keys, although they should all work out of the box; if there are issues check your keyboard on the [wiki](https://wiki.archlinux.org/title/Extra_keyboard_keys). 
+You can check the keybinds in the [hyprland config](./hypr/hyprland.conf), or on the table below.
 
-| Keybind                                        | Action                                            |
-| ---------------------------------------------- | ------------------------------------------------- |
+It contains explicit keybinds for F1 to F6 function keys, although they should all work out of the box, and multimedia keys; if there are issues check your keyboard on the [wiki](https://wiki.archlinux.org/title/Extra_keyboard_keys), and bind them to the corresponding keys. 
+
+| Keybind | Action |
+| ------- | ------ |
+| <kbd>FN1</kbd>                                 | Mute speaker |
+| <kbd>FN2</kbd>                                 | Increase speaker volume |
+| <kbd>FN3</kbd>                                 | Decrease speaker volume |
+| <kbd>FN4</kbd>                                 | Mute microphone |
+| <kbd>FN5</kbd>                                 | Decrease brightness |
+| <kbd>FN6</kbd>                                 | Increase brightness |
+| <kbd>XF86AudioPlay</kbd>                       | Play-pause current player |
+| <kbd>XF86AudioPrev</kbd>                       | Go to next track on current player |
+| <kbd>XF86AudioNext</kbd>                       | Go to previous track on current player |
 | <kbd>Super</kbd>+<kbd>Q</kbd>                  | Open Kitty terminal                               |
 | <kbd>Super</kbd>+<kbd>W</kbd>                  | Kill active window                                |
 | <kbd>Super</kbd>+<kbd>L</kbd>                  | Lock the screen, using swaylock                   |
@@ -164,7 +175,7 @@ You can check the keybinds in the [hyprland config](./hypr/hyprland.conf), or on
 | <kbd>Super</kbd>+<kbd>V</kbd>                  | Toggle on/off floating for the active window      |
 | <kbd>Super</kbd>+<kbd>P</kbd>                  | Toggle pseudo-tiling                              |
 | <kbd>Super</kbd>+<kbd>J</kbd>                  | Toggle split
-| <kbd>Super</kbd>+<kbd>Space</kbd>              | Show the graphical app launcher wofi              |
+| <kbd>Super</kbd>+<kbd>Space</kbd>              | Show the graphical app launcher and window switcher using rofi |
 | <kbd>Super</kbd>+<kbd>S</kbd>                  | Take a screenshot                                 |
 | <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> | Reload waybar                                     |
 | <kbd>Super</kbd>+<kbd>[1~9]</kbd>              | Open Thunar (1), WhatsDesk (2), Chromium (3), Discord (4), Telegram Desktop (5), Steam (6), none (7), VSCodium (8), Spotify Launcher (9) |
@@ -229,6 +240,10 @@ Instructions in the waybar [wiki](https://github.com/Alexays/Waybar/wiki/Module:
 
 This configuration is *almost* entirely taken from [klpod0s](https://github.com/klpod221/klpod0s), an aestethic, dynamic and minimal configuration for hyprland; just changed the color theme and tweaked a bit. 
 
+## Rofi
+
+This configuration is taken, and edited, from [adi1090's rofi collection](https://github.com/adi1090x/rofi). 
+
 ## Themes
 
 I tried to base it off this [color scheme](https://color.adobe.com/it/olor-Theme-color-theme-18068611/), but I'm not really good with that, if someone who knows colors could help I'd be very thankful :). 
@@ -254,4 +269,4 @@ For `sddm` I use the [eucalyptus-drop](https://gitlab.com/Matt.Jolly/sddm-eucaly
 
 # See Also
 
-[SolDoesTech](https://github.com/soldoestech)'s hyprland configs and [klpod221's klpod0s](https://github.com/klpod221/klpod0s) configs, the [hyprland](https://wiki.hyprland.org/) and [waybar](https://github.com/Alexays/Waybar/wiki/) wikis. [Shade of a cat](https://shadeofacat.carrd.co/) and [Sevenics](https://www.deviantart.com/sevenics) amazing art. 
+[SolDoesTech](https://github.com/soldoestech)'s hyprland configs and [klpod221's klpod0s](https://github.com/klpod221/klpod0s) config, [adi1090's rofi config collections](https://github.com/adi1090x/rofi), the [hyprland](https://wiki.hyprland.org/) and [waybar](https://github.com/Alexays/Waybar/wiki/) wikis. [Shade of a cat](https://shadeofacat.carrd.co/) and [Sevenics](https://www.deviantart.com/sevenics) amazing art. 

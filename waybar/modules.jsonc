@@ -3,12 +3,17 @@
         "format": "{}",
         "rewrite": {
             "(.*) - Chromium": " $1",
-            "(.*) - VSCodium": "  $1",
+            "(.*) - VSCodium": "󰨞 $1",
             "(.*) - Thunar": " $1",
             "(.*) - Discord": " $1",
+            "Unity - (.*)": " $1",
             "Steam": " Steam",
-            "(.*) - Telegram": " $1",
-            "WhatsDesk": " WhatsDesk"
+            "WhatsDesk": " WhatsDesk",
+            "Kitty": " $1",
+            "class<org.telegram.desktop>": " $1",
+            "class<spotify>": " Spotify",
+            "class<unityhub>": " UnityHub",
+            "class<zenity": "  Lenovo Vantage"
         },
         "icon": false,
         "separate-output": true
@@ -19,12 +24,30 @@
         "active-only": false,
         "all-outputs": true,
         "on-click": "activate",
-        "format": "{name}{icon}",
+        "format": "{name}{icon}{windows}",
         "format-icons": {
             "urgent": "  ",
-            "active": "",
-            "default": ""
+            "default": " ",
+            "empty": ""
         },
+        "window-rewrite": { // TODO complete
+            "title<.*youtube.*>": " ", 
+            "(.*) - Chromium": " ",
+            "(.*)VSCodium": "󰨞 ",
+            "class<Codium>": "󰨞 ",
+            "(.*) - Thunar": " ",
+            "class<discord>": " ",
+            "Steam": " ",
+            "class<org.telegram.desktop>": " ",
+            "WhatsDesk": " ",
+            "Kitty": " ",
+            "class<spotify>": " ",
+            "class<notion>": " ", // TODO add notion's symbol icon
+            "class<unityhub>": " ",
+            "class<Unity>": " ",
+            "class<zenity": " ",
+            "class<MuPDF>": " "
+	},
         "persistent-workspaces": {
             "*": 10,
             "HDMI-A-1": [11, 12]
@@ -41,7 +64,7 @@
         "format": "{:%H:%M:%S}",
         "locale": "it_IT.UTF-8",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:L%D %a (%H:%M:%S)}",
+        "format-alt": "{:L%a %d/%m/%y (%H:%M:%S)}",
         "calendar": {
                     "mode"          : "month",
                     "mode-mon-col"  : 3,
@@ -132,6 +155,7 @@
         "format-disconnected": "Disconnesso 󰌙",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "interval": 1,
+        "on-click-right": "kitty -e nmtui",
         "max-length": 30
     },
 
@@ -142,7 +166,8 @@
 	    "tooltip-format": "{device_alias}",
 	    "tooltip-format-connected": " {device_enumerate}",
 	    "tooltip-format-enumerate-connected": "{device_alias}",
-        "on-click": "rfkill toggle bluetooth"
+        "on-click": "rfkill toggle bluetooth",
+        "on-click-right": "blueman-manager"
     },
 
     "power-profiles-daemon": {
@@ -177,7 +202,7 @@
     "custom/updates": {
         //"format": " {}",
         "format": " {}",
-        "tooltip-format": "Aggiorna il Sistema\n<small>Pacchetti: {}</small>",
+        // "tooltip-format": "Aggiorna il Sistema\n<small>Pacchetti: {}</small>",
         "escape": true,
         "return-type": "json",
         "exec": "~/.config/waybar/scripts/updates.sh",
@@ -226,11 +251,11 @@
         "tooltip": true
     },
 
-    "custom/wofi": {
+    "custom/rofi": {
         "format": "{icon} Cerca",
         "format-icons": [""],
         "tooltip-format": "Applicazioni",
-        "on-click": "wofi"
+        "on-click": "rofi -show drun"
 
     },
 
