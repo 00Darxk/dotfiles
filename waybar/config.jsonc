@@ -1,6 +1,6 @@
 {
     "layer": "top",
-    "position": "bottom",
+    "position": "top",
     "mod": "dock",
     "exclusive": true,
     "passthrough": false,
@@ -17,7 +17,7 @@
 		"hyprland/window"
 	],
     "modules-center": [
-		"custom/wofi",
+		"custom/rofi",
 		"hyprland/workspaces",
 		"group/exit",
 		"custom/wol",

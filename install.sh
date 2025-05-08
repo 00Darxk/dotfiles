@@ -31,7 +31,7 @@ fi
 read -n1 -rep 'Would you like to install the packages? (y,n)' INST
 if [[ $INST == "Y" || $INST == "y" ]]; then
     yay -S --noconfirm hyprland kitty waybar \
-    swaybg swaylock-effects wofi wlogout swaync thunar \
+    swaybg swaylock-effects rofi-wayland wlogout swaync thunar \
     ttf-jetbrains-mono-nerd polkit-gnome starship \
     swappy grim slurp pamixer brightnessctl gvfs \
     bluez bluez-utils nwg-look xfce4-settings \
@@ -59,7 +59,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp -R swaylock ~/.config/
     cp -R waybar ~/.config/
     cp -R wlogout ~/.config/
-    cp -R wofi ~/.config/
+    cp -R rofi ~/.config/
     cp hyfetch.json ~/.config/
 
     # Set some files as exactable 
