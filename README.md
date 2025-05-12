@@ -58,6 +58,7 @@ Below a table of each package that should be installed, and its purpose. If you 
 | `gvfs`                    | Adds missing feature to thunar |
 | `bluez`                   | Bluetooth protocol stack |
 | `bluez-utils`             | Command line utilities to interact with bluetooth devices |
+| `blueman`                 | GTK+ bluetooth manager |
 | `nwg-look`                | GTK3 settings editor adapter |
 | `xfce4-settings`          | Set of tools for xfce, needed to set GTK theme | <!-- TODO check if really needed -->
 | `xdg-desktop-portal-hyprland` | `xdg-desktop-portal` backend for hyprland |
@@ -80,7 +81,7 @@ Below a table of each package that should be installed, and its purpose. If you 
 
 
 ```sh
-pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp pamixer brightnessctl gvfs bluez bluez-utils nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop discord steam spotify-launcher chromium tailscale fzf
+pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp pamixer brightnessctl gvfs bluez bluez-utils blueman nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop discord steam spotify-launcher chromium tailscale fzf
 ```
 
 #### AUR packages
@@ -109,6 +110,7 @@ Here is a list of useful and funny packages:
 | `cowsay` | Configurable talking cow |
 | `fortune-mod` | Fortune cookie program from BSG games |
 | `pipes.sh`<sup>AUR</sup> | Animated pipes terminal screensaver |
+| `figlet`      | A program for making large letters out of ordinary text | 
 | `imagemagick` | An image viewing/manipulation program |
 | `inkscape` | Professional vector graphics editor |
 
@@ -120,16 +122,7 @@ yay -S cowsay fortune-mod pipes.sh imagemagick inkscape
 
 Copy the configs to the `~/.config` folder:
 ```bash
-cp -R hypr ~/.config/
-cp -R kitty ~/.config/
-cp -R neofetch ~/.config/
-cp -R swaylock ~/.config/
-cp -R waybar ~/.config/
-cp -R wlogout ~/.config/
-cp -R rofi ~/.config/
-cp hyfetch.json ~/.config/
-cp .bashrc ~/.config/
-cp starship.toml ~/.config/
+cp -R hypr kitty neofetch swaylock waybar wlogout rofi hyfetch.json .bashrc starship.toml ~/.config/
 ``` 
 
 Set files as executable:
@@ -154,16 +147,16 @@ See [WoL and Tailscale](#wake-on-lan-and-tailscale-module) and [GitHub Notificat
 
 You can check the keybinds in the [hyprland config](./hypr/hyprland.conf), or on the table below.
 
-It contains explicit keybinds for F1 to F6 function keys, although they should all work out of the box, and multimedia keys; if there are issues check your keyboard on the [wiki](https://wiki.archlinux.org/title/Extra_keyboard_keys), and bind them to the corresponding keys. 
+It contains explicit keybinds for F1 to F6 function keys, although they, and multimedia keys, should all work out of the box; if there are issues check your keyboard on the [wiki](https://wiki.archlinux.org/title/Extra_keyboard_keys), and bind them to the corresponding keys. 
 
-| Keybind | Action |
-| ------- | ------ |
-| <kbd>FN1</kbd>                                 | Mute speaker |
+<!-- | <kbd>FN1</kbd>                                 | Mute speaker |
 | <kbd>FN2</kbd>                                 | Increase speaker volume |
 | <kbd>FN3</kbd>                                 | Decrease speaker volume |
 | <kbd>FN4</kbd>                                 | Mute microphone |
 | <kbd>FN5</kbd>                                 | Decrease brightness |
-| <kbd>FN6</kbd>                                 | Increase brightness |
+| <kbd>FN6</kbd>                                 | Increase brightness | -->
+| Keybind | Action |
+| ------- | ------ |
 | <kbd>XF86AudioPlay</kbd>                       | Play-pause current player |
 | <kbd>XF86AudioPrev</kbd>                       | Go to next track on current player |
 | <kbd>XF86AudioNext</kbd>                       | Go to previous track on current player |
@@ -269,4 +262,5 @@ For `sddm` I use the [eucalyptus-drop](https://gitlab.com/Matt.Jolly/sddm-eucaly
 
 # See Also
 
-[SolDoesTech](https://github.com/soldoestech)'s hyprland configs and [klpod221's klpod0s](https://github.com/klpod221/klpod0s) config, [adi1090's rofi config collections](https://github.com/adi1090x/rofi), the [hyprland](https://wiki.hyprland.org/) and [waybar](https://github.com/Alexays/Waybar/wiki/) wikis. [Shade of a cat](https://shadeofacat.carrd.co/) and [Sevenics](https://www.deviantart.com/sevenics) amazing art. 
+[SolDoesTech](https://github.com/soldoestech), [LierB](https://github.com/LierB/dotfiles), [klpod221](https://github.com/klpod221/klpod0s) and hyprland configs; [sejjy's waybar config](https://github.com/sejjy/mechabar) and [adi1090's rofi config collections](https://github.com/adi1090x/rofi), 
+The [hyprland](https://wiki.hyprland.org/) and [waybar](https://github.com/Alexays/Waybar/wiki/) wikis. [Shade of a cat](https://shadeofacat.carrd.co/) and [Sevenics](https://www.deviantart.com/sevenics) amazing art. 

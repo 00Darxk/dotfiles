@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Edited from https://github.com/SolDoesTech/hyprland
 # The following will attempt to install all needed packages to run Hyprland
 # Packages and a description can be found on https://github.com/00Darxk/dotfiles?tab=readme-ov-file#dependencies
 # This is a quick and dirty script there are no error checking
@@ -34,7 +35,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     swaybg swaylock-effects rofi-wayland wlogout swaync thunar \
     ttf-jetbrains-mono-nerd polkit-gnome starship \
     swappy grim slurp pamixer brightnessctl gvfs \
-    bluez bluez-utils nwg-look xfce4-settings \
+    bluez bluez-utils blueman nwg-look xfce4-settings \
     dracula-gtk-theme dracula-icons-git xdg-desktop-portal-hyprland \
     wl-gammarelay hyfetch power-profiles-daemon sddm \
     ttf-fira-code ttf-font-awesome jq fzf btop \
@@ -53,39 +54,32 @@ fi
 read -n1 -rep 'Would you like to copy config files? (y,n)' CFG
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
     echo -e "Copying config files...\n"
-    cp -R hypr ~/.config/
-    cp -R kitty ~/.config/
-    cp -R neofetch ~/.config/
-    cp -R swaylock ~/.config/
-    cp -R waybar ~/.config/
-    cp -R wlogout ~/.config/
-    cp -R rofi ~/.config/
-    cp hyfetch.json ~/.config/
+    cp -R hypr kitty neofetch swaylock waybar wlogout rofi hyfetch.json ~/.config/
 
     # Set some files as exactable 
     chmod +x ~/.config/hypr/xdg-portal-hyprland
     chmod +x ~/.config/waybar/scripts/*
 fi
 
-### Configure WoL in waybar ### TODO test and configure correctly
+### Configure WoL in waybar 
 read -n1 -rep 'Would you like to install and configure wake on lan with waybar? (y,n)' WOL
 if [[ $WOL == "Y" || $WOL == "y" ]]; then
     yay -S --noconfirm wol
-    mkdir -p "~/.secrets"
+    mkdir -p "~/.config/.secrets"
     read -p "Enter IP Address: " IPAddress
     read -p "Enter MAC Address: " MACAddress
-    echo -e "$IPAddress" > ~/.secrets/ip-address.txt
-    echo -e "$MACAddress" > ~/.secrets/mac-address.txt
+    echo -e "$IPAddress" > ~/.config/.secrets/ip-address.txt
+    echo -e "$MACAddress" > ~/.config/.secrets/mac-address.txt
 fi
 
-### Configure tailscale in waybar ### TODO test and configure correctly
+### Configure tailscale in waybar 
 read -n1 -rep 'Would you like to install and configure tailscale with waybar? (y,n)' TAIL
 if [[ $TAIL == "Y" || $TAIL == "y" ]]; then
     echo "Installing tailscale..."
     yay -S --noconfirm tailscale
-    mkdir -p "~/.secrets"
+    mkdir -p "~/.config/.secrets"
     read -p "Enter hostname: " hostname
-    echo -e "$hostname" > ~/.secrets/hostname.txt
+    echo -e "$hostname" > ~/.config/.secrets/hostname.txt
     echo -e "Enable tailscale:"
     sudo systemctl enable --now tailscaled
     echo -e "Connecting to your tailscale network..."
@@ -99,7 +93,7 @@ if [[ $STAR == "Y" || $STAR == "y" ]]; then
     # install the starship shell
     echo -e "Updating .bashrc...\n"
     echo -e '\neval "$(starship init bash)"' >> ~/.bashrc
-    echo -e "copying starship config file to ~/.confg ...\n"
+    echo -e "copying starship config file to ~/.config ...\n"
     cp .bashrc ~/.bashrc
     cp starship.toml ~/.config/
 fi
