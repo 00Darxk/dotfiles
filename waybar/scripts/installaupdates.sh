@@ -1,8 +1,8 @@
-echo "Lista aggiornamenti pacman":
+echo "pacman updates":
 checkupdates
-echo "Lista aggiornamenti AUR":
+echo "AUR updates":
 yay -Qua
-read -n1 -rep 'Scaricare aggiornamenti? (s,n)' UPD
-if [[ $UPD == "S" || $UPD == "s" ]]; then
+read -n1 -rep 'Install updates? (y,n)' UPD
+if [[ $UPD == "Y" || $UPD == "y" ]]; then
     yay --noconfirm -Syu
 fi

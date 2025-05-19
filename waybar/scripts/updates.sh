@@ -6,7 +6,6 @@ threshhold_red=100
 # Calculate the available updates pacman and aur (with yay)
 # -------------------------------------------------------
 
-# TODO aggiungere lista degli aggiornamenti a tooltip
 # devono essere sulla stessa linea, separati da un "\n"
 list_updates_arch=$(checkupdates | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g");
 list_updates_aur=$(yay -Qua | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g");
@@ -23,7 +22,7 @@ list_updates=""
 
 if [ "$updates_arch" -gt 0 ]; then
     list_updates+="${list_updates_arch//$'\n'/\\n}"
-    if [ "$updates_aur" -gt 0 ]; then ## TODO sistemare brutto
+    if [ "$updates_aur" -gt 0 ]; then
         list_updates+="\n"
     fi
 fi
@@ -37,7 +36,7 @@ fi
 # -------------------------------------------------------
 ## TODO fix HTML tag, something about escaping right idfk
 updates=$(("$updates_arch" + "$updates_aur"))
-tooltip="Aggiorna il Sistema\n<span size=\\\"small\\\">${updates} Pacchetti</span>:\n${list_updates}"
+tooltip="System Update\n<span size=\\\"small\\\">${updates} Packages</span>:\n${list_updates}"
 
 css_class="green"
 

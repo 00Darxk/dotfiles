@@ -47,8 +47,8 @@
             "class<Unity>": " ",
             "class<zenity": " ",
             "class<MuPDF>": " ",
-            "title<Aggiornamenti>": " ",
-            "title<Pacchetti Installati>": " "
+            "title<Updates>": " ",
+            "title<Installed Packages>": " "
 	},
         "persistent-workspaces": {
             "*": 10,
@@ -65,7 +65,7 @@
     "clock": {
         "interval": 1,
         "format": "{:%H:%M:%S}",
-        "locale": "it_IT.UTF-8",
+        // "locale": "it_IT.UTF-8",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "format-alt": "{:L%a %d/%m/%y (%H:%M:%S)}",
         "calendar": {
@@ -89,7 +89,7 @@
         "format-icons": ["󰃞", "󰃟", "󰃠"],
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
-        "tooltip-format": "Luminosità",
+        "tooltip-format": "Brightness",
         "tooltip": true
     },
 
@@ -144,7 +144,7 @@
         "critical-threshold": 80,
         "format-critical": " {temperatureC}°C",
         "on-click": "kitty --title btop sh -c 'btop'",
-        "tooltip-format": "Temperatura CPU",
+        "tooltip-format": "CPU Temperature",
         "tooltip": true
     },
 
@@ -155,7 +155,7 @@
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname}: via {gwaddr} \n<small>down/up:  {bandwidthDownBytes}   {bandwidthUpBytes}</small>",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnesso 󰌙",
+        "format-disconnected": "Disconnected 󰌙",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "interval": 1,
         "on-click-right": "kitty -e nmtui",
@@ -175,7 +175,7 @@
 
     "power-profiles-daemon": {
         "format": "{icon} ",
-        "tooltip-format": "Opzione di Risparmio: {profile}\nDriver: {driver}",
+        "tooltip-format": "Power Profiles: {profile}\nDriver: {driver}",
         "tooltip": true,
         "format-icons": {
           "default": "",
@@ -190,7 +190,7 @@
         "format-icons": [""],
         //"on-click": "sh -c'(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
         "on-click": "wlogout --protocol layer-shell",
-        "tooltip-format": "Opzioni di Spegnimento",
+        "tooltip-format": "Shutdown Options",
         "tooltip": true
     },
 
@@ -198,33 +198,33 @@
         "format": "{icon}",        
         "format-icons": [""],
         "on-click": "swaylock",
-        "tooltip-format": "Schermata di Blocco",
+        "tooltip-format": "Lock Screen",
         "tooltip": true
     },
 
     "custom/updates": {
         //"format": " {}",
         "format": " {}",
-        // "tooltip-format": "Aggiorna il Sistema\n<small>Pacchetti: {}</small>",
+        // "tooltip-format": "System Update\n<small>Packages: {}</small>",
         "escape": true,
         "return-type": "json",
         "exec": "~/.config/waybar/scripts/updates.sh",
         "restart-interval": 3600,
-        "on-click": "kitty --title Aggiornamenti sh -c ~/.config/waybar/scripts/installaupdates.sh",
-        "on-click-right": "kitty --title 'Pacchetti Installati' sh -c ~/.config/waybar/scripts/listpackages.sh",
+        "on-click": "kitty --title Updates sh -c ~/.config/waybar/scripts/installaupdates.sh",
+        "on-click-right": "kitty --title 'Installed Packages' sh -c ~/.config/waybar/scripts/listpackages.sh",
         "tooltip": true
     },
 
     "custom/wol": {
         "format": "{icon}",
         "format-icons": [""],
-        "tooltip-format": "Sveglia e Connetti ad Host:\n<small>{}</small>",
+        "tooltip-format": "Wake and Connect to Remote Host:\n<small>{}</small>",
         "escape": true,
         "return-type":"json",
         "exec":"~/.config/waybar/scripts/tailscaleinfo.sh",
         "interval": 60,
         "on-click": "~/.config/waybar/scripts/wol.sh",
-        "on-click-right": "kitty --title 'Connetti a '$(cat ~/.config/.secrets/hostname.txt)'' sh -c ~/.config/waybar/scripts/connectssh.sh",
+        "on-click-right": "kitty --title 'Connection to '$(cat ~/.config/.secrets/hostname.txt)'' sh -c ~/.config/waybar/scripts/connectssh.sh",
         "tooltip": true
     },
 
@@ -246,7 +246,7 @@
 
     "custom/github": {
         "format": " {}",
-        "tooltip-format": "Notifiche GitHub",
+        "tooltip-format": "GitHub Notifications",
         "return-type": "json",
         "interval": 60,
         "exec": "~/.config/waybar/scripts/github.sh",
@@ -255,9 +255,9 @@
     },
 
     "custom/rofi": {
-        "format": "{icon} Cerca",
+        "format": "{icon} Search",
         "format-icons": [""],
-        "tooltip-format": "Applicazioni",
+        "tooltip-format": "Application",
         "on-click": "rofi -show drun"
 
     },
@@ -269,7 +269,7 @@
         "exec": "wl-gammarelay --subscribe Temperature",
         "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
         "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100",
-        "tooltip-format": "Temperatura Schermo: {} K",
+        "tooltip-format": "Screen Temperature: {} K",
         "tooltip": true
     },
 
