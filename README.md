@@ -47,6 +47,7 @@ Below a table of each package that should be installed, and its purpose. If you 
 | `rofi-wayland`            | A window switcher, application launcher and dmenu replacement |
 | `swaync`                  | Graphical notification daemon |
 | `thunar`                  | Graphical file manager |
+| `swayidle`                | Idle management deamon for Wayland |
 | `ttf-jetbrains-mono-nerd` | Some nerd fonts for icons and overall look |
 | `polkit-gnome`            | Graphical superuser, needed for some applications |
 | `starship`                | Customizable shell prompt |

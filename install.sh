@@ -33,7 +33,7 @@ read -n1 -rep 'Would you like to install the packages? (y,n)' INST
 if [[ $INST == "Y" || $INST == "y" ]]; then
     yay -S --noconfirm hyprland kitty waybar \
     swaybg swaylock-effects rofi-wayland wlogout swaync thunar \
-    ttf-jetbrains-mono-nerd polkit-gnome starship \
+    swayidle ttf-jetbrains-mono-nerd polkit-gnome starship \
     swappy grim slurp pamixer brightnessctl gvfs \
     bluez bluez-utils blueman nwg-look xfce4-settings \
     dracula-gtk-theme dracula-icons-git xdg-desktop-portal-hyprland \

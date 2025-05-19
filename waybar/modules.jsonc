@@ -48,12 +48,12 @@
             "class<zenity": " ",
             "class<MuPDF>": " ",
             "title<Aggiornamenti>": " ",
-            "title<Pacchetti Installati>": " ",
-            "title<Connessione ad Host Remoto>": " "
+            "title<Pacchetti Installati>": " "
 	},
         "persistent-workspaces": {
             "*": 10,
-            "HDMI-A-1": [11, 12]
+            "HDMI-A-1": [11, 12],
+            "DP-1": [11,12]
         }
     },
 
@@ -224,7 +224,7 @@
         "exec":"~/.config/waybar/scripts/tailscaleinfo.sh",
         "interval": 60,
         "on-click": "~/.config/waybar/scripts/wol.sh",
-        "on-click-right": "kitty --title 'Connessione a '$(cat ~/.config/.secrets/hostname.txt)'' sh -c ~/.config/waybar/scripts/connectssh.sh",
+        "on-click-right": "kitty --title 'Connetti a '$(cat ~/.config/.secrets/hostname.txt)'' sh -c ~/.config/waybar/scripts/connectssh.sh",
         "tooltip": true
     },
 
