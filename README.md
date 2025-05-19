@@ -15,7 +15,7 @@ git clone https://github.com/00Darxk/dotfiles.git
 cd dotfiles
 ```
 
-I will make another branch, and move the italian version there. For now you'll need to make the changes yourself to change the language in these configs: [installupdates.sh](./waybar/scripts/installaupdates.sh),  [hyprland.conf](./hypr/hyprland.conf) under input select your keyboard layout, [waybar](/waybar/modules.jsonc) modules, [wlogout](./wlogout/layout), [rofi](./rofi/config.rasi), [starship.toml](./starship.toml). These changes are purely aesthetics. 
+You can install either the english (```main-en``` branch) or italians (```main``` branch) tooltip version, by switching to that branch and running the installation script. 
 
 # Installation
 
@@ -23,10 +23,10 @@ I will make another branch, and move the italian version there. For now you'll n
 
 Run the [install script](./install.sh), it will try to install all needed [dependencies](#dependencies) 
 > [!CAUTION]
-> This script DOES NOT backup any config files you may have, it is meant for a fresh install. Use it if you know what you are doing. 
+> This script does not backup any existing config and does no error checking. It is meant for a fresh install.  
 
 ```sh
-install.sh
+./install.sh
 ```
 Yay need to be installed, as its used by the script to install all the packages. Refer to the official [yay page](https://github.com/Jguer/yay?tab=readme-ov-file#installation) for installation.  
 
@@ -61,10 +61,10 @@ Below a table of each package that should be installed, and its purpose. If you 
 | `bluez-utils`             | Command line utilities to interact with bluetooth devices |
 | `blueman`                 | GTK+ bluetooth manager |
 | `nwg-look`                | GTK3 settings editor adapter |
-| `xfce4-settings`          | Set of tools for xfce, needed to set GTK theme | <!-- TODO check if really needed -->
+| `xfce4-settings`          | Set of tools for xfce, needed to set GTK theme |
 | `xdg-desktop-portal-hyprland` | `xdg-desktop-portal` backend for hyprland |
 | `wl-gammarelay`           | Client and daemon for changing color temperature and brightness under wayland |
-| `hyfetch`                 | Fork of neofetch with LGBTQ+ pride flags |
+| `hyfetch`                 | Fork of neofetch with LGBTQ+ pride flags. (Use your preferred neofetch fork) |
 | `power-profiles-daemon`   | Maked power profiles handling over D-Bus |
 | `sddm`                    | Login manager |
 | `tff-fira-code`           | Free monospace font with programming ligatures |
@@ -82,7 +82,7 @@ Below a table of each package that should be installed, and its purpose. If you 
 
 
 ```sh
-pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp pamixer brightnessctl gvfs bluez bluez-utils blueman nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop discord steam spotify-launcher chromium tailscale fzf
+pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar swayidle ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp pamixer brightnessctl gvfs bluez bluez-utils blueman nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop discord steam spotify-launcher chromium tailscale fzf
 ```
 
 #### AUR packages
@@ -123,7 +123,7 @@ yay -S cowsay fortune-mod pipes.sh imagemagick inkscape
 
 Copy the configs to the `~/.config` folder:
 ```bash
-cp -R hypr kitty neofetch swaylock waybar wlogout rofi hyfetch.json .bashrc starship.toml ~/.config/
+cp -R hypr kitty neofetch swayidle swaylock waybar wlogout rofi hyfetch.json .bashrc starship.toml ~/.config/
 ``` 
 
 Set files as executable:
@@ -251,7 +251,7 @@ For `sddm` I use the [eucalyptus-drop](https://gitlab.com/Matt.Jolly/sddm-eucaly
   - [x] Test the installation script :3 
   - [x] Add usefull information in the README
     - [ ] Module description
-  - [ ] Create a version with english toolip in waybar
+  - [x] Create a version with english toolip in waybar
   - [ ] Improve installation script
     - [ ] Add the option to choose which language to use in the installation script
     - [ ] Backup previous config files
