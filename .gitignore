@@ -3,3 +3,4 @@
 
 # Temporary file, for testing configs
 *temp/
+.vscode/
