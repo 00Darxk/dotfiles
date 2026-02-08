@@ -3,7 +3,7 @@
         //"format": " {}",
         "format": " {}",
         // "tooltip-format": "Aggiorna il Sistema\n<small>Pacchetti: {}</small>",
-        "escape": true,
+        "escape": false,
         "return-type": "json",
         "exec": "~/.config/waybar/scripts/updates.sh",
         "restart-interval": 3600,

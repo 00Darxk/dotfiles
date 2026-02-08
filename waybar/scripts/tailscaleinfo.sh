@@ -6,8 +6,6 @@
 hostnames=($(cat "$HOME/.config/.secrets/hostnames.txt")) 
 sshhost=($(cat "$HOME/.config/.secrets/hostname.txt")) 
 
-icon=""
-
 for i in "${!hostnames[@]}"; do
     hostname="${hostnames[$i]}"
 
