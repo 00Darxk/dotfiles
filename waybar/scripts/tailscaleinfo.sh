@@ -6,6 +6,10 @@
 hostnames=($(cat "$HOME/.config/.secrets/hostnames.txt")) 
 sshhost=($(cat "$HOME/.config/.secrets/hostname.txt")) 
 
+if [ -z $hostnames ] ; then
+    hostnames=$sshhost
+fi
+
 for i in "${!hostnames[@]}"; do
     hostname="${hostnames[$i]}"
 
