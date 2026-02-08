@@ -1,0 +1,9 @@
+{
+    "custom/lock_screen": {
+        "format": "{icon}",        
+        "format-icons": [""],
+        "on-click": "swaylock",
+        "tooltip-format": "Schermata di Blocco",
+        "tooltip": true
+    }
+}

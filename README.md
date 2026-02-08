@@ -255,7 +255,8 @@ For `sddm` I use the [eucalyptus-drop](https://gitlab.com/Matt.Jolly/sddm-eucaly
   - [ ] Improve installation script
     - [ ] Add the option to choose which language to use in the installation script
     - [ ] Backup previous config files
-  - [ ] Create standalone module config for each waybar module
+  - [x] Create standalone module config for each waybar module
+  - [x] Create separate config files for hyprland
 
 
 # Contributions

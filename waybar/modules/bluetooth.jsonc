@@ -1,0 +1,12 @@
+{
+    "bluetooth": {
+	    "format": "  ",
+	    "format-disabled": "  ",
+	    "format-connected": " {num_connections}",
+	    "tooltip-format": "{device_alias}",
+	    "tooltip-format-connected": " {device_enumerate}",
+	    "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "rfkill toggle bluetooth",
+        "on-click-right": "blueman-manager"
+    }
+}

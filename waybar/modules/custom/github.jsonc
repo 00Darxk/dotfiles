@@ -1,0 +1,11 @@
+{
+    "custom/github": {
+        "format": " {}",
+        "tooltip-format": "Notifiche GitHub",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "~/.config/waybar/scripts/github.sh",
+        "on-click": "xdg-open https://github.com/notifications",
+        "tooltip": true
+    }
+}

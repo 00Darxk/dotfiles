@@ -1,0 +1,22 @@
+{
+    "hyprland/window": {
+        "format": "{}",
+        "rewrite": {
+            "(.*) - Chromium": " $1",
+            "(.*) - VSCodium": "󰨞 $1",
+            "(.*) - Thunar": " $1",
+            "(.*) - Discord": " $1",
+            "Unity - (.*)": " $1",
+            "Steam": " Steam",
+            "WhatsDesk": " WhatsDesk",
+            "Kitty": " $1",
+            "class<org.gnome.Terminal>": " $1",
+            "class<org.telegram.desktop>": " $1",
+            "class<spotify>": " Spotify",
+            "class<unityhub>": " UnityHub",
+            "class<zenity>": "  Lenovo Vantage"
+        },
+        "icon": false,
+        "separate-output": true
+    }
+}

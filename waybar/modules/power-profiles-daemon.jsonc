@@ -1,0 +1,13 @@
+{
+    "power-profiles-daemon": {
+        "format": "{icon} ",
+        "tooltip-format": "Opzione di Risparmio: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+          "default": "",
+          "performance": "",
+          "balanced": "",
+          "power-saver": ""
+        }
+    }
+}

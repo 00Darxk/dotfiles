@@ -1,0 +1,12 @@
+{
+    "custom/wl-gammarelay-temperature": {
+        "format": "{} {icon}",
+        "format-alt": "{icon}", 
+        "format-icons": [""],
+        "exec": "wl-gammarelay --subscribe Temperature",
+        "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
+        "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100",
+        "tooltip-format": "Temperatura Schermo: {} K",
+        "tooltip": true
+    }
+}
