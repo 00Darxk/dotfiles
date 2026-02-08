@@ -219,12 +219,19 @@ In the same way you can edit the top line of the [swaylock config](./swaylock/co
 ### Wake on LAN and Tailscale Module
 If you'd like to use the waybar module to wake a machine over LAN either follow the instructions in the installation scripts or create the ```./secrets``` folder, the ```ip-address.txt``` and ```mac-address.txt``` files.
 
-The [wol.sh](./waybar/scripts/wol.sh) sends a magic packet to the machine, using the [wol](https://sourceforge.net/projects/wake-on-lan/) package. Change the script if you would like to use a different application. 
+The [wol.sh](./waybar/scripts/wol.sh) script sends a magic packet to the machine, using the [wol](https://sourceforge.net/projects/wake-on-lan/) package. Change the script if you would like to use a different application. You can run the script by left-clicking the module on waybar. 
 
- the same module can be used to ssh into another machine using tailscale, for this create the ```hostname.txt``` file inside the secret folder with the hostname or the ip address in your tailscale network. For simplicity both these functions refer to the same machine. 
-You can just comment out or remove the module in [waybar config](./waybar/config.jsonc) if you don't use it. If you haven't configured it, it will not show in waybar. 
+The same module can be used to ssh into another machine using tailscale's IP, for this create the ```hostname.txt``` file inside the secret folder with the hostname of the machine inside your tailnet. You can run the [ssh script](./waybar/scripts/connectssh.sh) by right-clicking the module on waybar. 
 
-To WoL left-click the module, to ssh right-click it; the color of the module shows the tailscale status of the machine you configured, not if the machine itself is on or off. If you have enabled tailscaled on the machine it will show the machine status, as it starts on startup. If you have set different machines for WoL and ssh the tooltip refers only to the ssh machine.
+The tooltip shows the status of the selected machines from your tailnet, from the file ```hostnames.txt```, it shows the machine you will ssh into with ```>  {hostname}```. 
+
+You can just comment out or remove the module in [waybar config](./waybar/config.jsonc) if you don't use it. If you haven't configured it, it will not show in waybar, by just crashing every 60 seconds. 
+
+For simplicity both these functions refer to the same machine, although you could use different machine for both, it would be confusing. It'd be better to split the two modules for better usability. 
+
+The color of the module shows the tailscale status of the machine you configured, not if the machine itself is on or off. If you have enabled tailscaled on the machine it will show the machine status, if you have enabled the service on startup. 
+
+
 
 ### GitHub Notifications Module
 
@@ -254,10 +261,11 @@ For `sddm` I use the [eucalyptus-drop](https://gitlab.com/Matt.Jolly/sddm-eucaly
   - [x] Create a version with english toolip in waybar
   - [ ] Improve installation script
     - [ ] Add the option to choose which language to use in the installation script
+      - [ ] Script to change tooltip language based on 'dotleng/  {language-code}.json'
     - [ ] Backup previous config files
   - [x] Create standalone module config for each waybar module
   - [x] Create separate config files for hyprland
-
+  - [ ] Split waybar/wol_tailscale into two separate modules
 
 # Contributions
 ...and suggestions are welcome, just open an issue or a pull request :)

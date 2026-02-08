@@ -1,9 +1,9 @@
 {
-    "custom/wol": {
+    "custom/wol_tailscale": {
         "format": "{icon}",
         "format-icons": [""],
         "tooltip-format": "Sveglia e Connetti ad Host:\n<small>{}</small>",
-        "escape": true,
+        "escape": false,
         "return-type":"json",
         "exec":"~/.config/waybar/scripts/tailscaleinfo.sh",
         "interval": 60,

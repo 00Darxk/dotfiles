@@ -24,7 +24,8 @@
 		"custom/rofi",
 		"hyprland/workspaces",
 		"group/exit",
-		"custom/wol",
+		// "custom/wol",
+		"custom/wol_tailscale",
 		"custom/updates",
 		"custom/github"
 	],

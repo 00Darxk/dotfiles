@@ -80,10 +80,30 @@ if [[ $TAIL == "Y" || $TAIL == "y" ]]; then
     mkdir -p "~/.config/.secrets"
     read -p "Enter hostname: " hostname
     echo -e "$hostname" > ~/.config/.secrets/hostname.txt
+    cat ~/.config/.secrets/hostname.txt > ~/.config/.secrets/hostnames.txt
     echo -e "Enable tailscale:"
     sudo systemctl enable --now tailscaled
     echo -e "Connecting to your tailscale network..."
     sudo tailscale up
+    read -n1 -rep 'Would you like to add more machine status to the tooltip? (y,n)' TAIL
+    if [[ $TAIL == "Y" || $TAIL == "y" ]]; then
+        tailstatus=("$(tailscale status)")
+        echo "$tailstatus"
+        while :
+        do
+            printf "Enter hostname ('q' or enter to quit): " ; read -r host
+            if [ "$host" = "q" ] || [ "$host" = "Q" ] || [ -z "${host}" ]; then
+                break
+            fi
+
+            if ! grep -q "$host" "$tailstatus" ; then
+                echo "Host '$host' not in tailnet"
+            else
+                echo "Added '$host'"
+                echo "$host" >> "~/.config/.secrets/hostnames.txt"
+            fi 
+        done
+    fi
 fi
 
 

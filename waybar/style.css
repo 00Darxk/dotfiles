@@ -90,6 +90,7 @@ tooltip {
 #custom-power_btn,
 #custom-lock_screen,
 #custom-wol,
+#custom-wol_tailscale,
 #custom-updates,
 #custom-github,
 #custom-media,
@@ -167,14 +168,15 @@ window#waybar.empty #window {
     border-radius: 0px 0px 0px 0px;
 }
 
+#custom-wol_tailscale,
 #custom-wol {
     border-radius: 0px 0px 0px 0px;    
 }
-
+#custom-wol_tailscale.green,
 #custom-wol.green {
     color: #a6e3a1;
 }
-
+#custom-wol_tailscale.red,
 #custom-wol.red {
     color: #fd8b9e; 
 }
