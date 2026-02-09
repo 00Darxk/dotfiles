@@ -216,22 +216,28 @@ In the same way you can edit the top line of the [swaylock config](./swaylock/co
 
 ### Hyprland Modules
 
-### Wake on LAN and Tailscale Module
-If you'd like to use the waybar module to wake a machine over LAN either follow the instructions in the installation scripts or create the ```./secrets``` folder, the ```ip-address.txt``` and ```mac-address.txt``` files.
+### Wake on LAN Module 
 
-The [wol.sh](./waybar/scripts/wol.sh) script sends a magic packet to the machine, using the [wol](https://sourceforge.net/projects/wake-on-lan/) package. Change the script if you would like to use a different application. You can run the script by left-clicking the module on waybar. 
-
-The same module can be used to ssh into another machine using tailscale's IP, for this create the ```hostname.txt``` file inside the secret folder with the hostname of the machine inside your tailnet. You can run the [ssh script](./waybar/scripts/connectssh.sh) by right-clicking the module on waybar. 
-
-The tooltip shows the status of the selected machines from your tailnet, from the file ```hostnames.txt```, it shows the machine you will ssh into with ```>  {hostname}```. 
-
-You can just comment out or remove the module in [waybar config](./waybar/config.jsonc) if you don't use it. If you haven't configured it, it will not show in waybar, by just crashing every 60 seconds. 
-
-For simplicity both these functions refer to the same machine, although you could use different machine for both, it would be confusing. It'd be better to split the two modules for better usability. 
-
-The color of the module shows the tailscale status of the machine you configured, not if the machine itself is on or off. If you have enabled tailscaled on the machine it will show the machine status, if you have enabled the service on startup. 
+If you'd like to use the waybar module to wake a machine over LAN either follow the instructions in the installation scripts or create the ```./secrets``` folder, the ```ip-address.txt``` and ```mac-address.txt``` files, and uncomment the module from the waybar config:
+```sh
+sed -r -i "s|(^.*)//[ ]*([^$]*wol.*$)|\1\2|" "$HOME/.config/waybar/config.jsonc"
+```
+It is off by default. 
 
 
+The [wol.sh](./waybar/scripts/wol.sh) script sends a magic packet to the machine, using the [wol](https://sourceforge.net/projects/wake-on-lan/) package. Change the script if you would like to use a different application. You can run the script by clicking on the module. 
+
+It periodically pings the machine with the script [wolinfo.sh](./waybar/scripts/wolinfo.sh) and shows that machine's status. If you used a broadcast address as the ip and the ip isn't in your arp table, it won't correctly show this status. 
+
+### Tailscale Module
+
+The Tailscale module can be used to SSH into another machine using its tailscale's IP and it shows the statuses of selected machines from your tailnet in the tooltip. To enable uncomment the module in the waybar config:
+```sh
+sed -r -i "s|(^.*)//[ ]*([^$]*tailscale.*$)|\1\2|" "$HOME/.config/waybar/config.jsonc"
+```
+It is off by default.
+
+For this create the ```hostname.txt``` and ```hostnames.txt``` for the selected machiens inside the ```.secrets``` folder. You can run the [ssh script](./waybar/scripts/connectssh.sh) by clicking the module on waybar. You can add a new host by right-clicking, and cycling through the provided hosts by scrolling up or down
 
 ### GitHub Notifications Module
 
@@ -261,7 +267,7 @@ For `sddm` I use the [eucalyptus-drop](https://gitlab.com/Matt.Jolly/sddm-eucaly
   - [x] Create a version with english toolip in waybar
   - [ ] Improve installation script
     - [ ] Add the option to choose which language to use in the installation script
-      - [ ] Script to change tooltip language based on 'dotleng/  {language-code}.json'
+      - [ ] Script to change tooltip language based on 'dotlang/  {language-code}.json'
     - [ ] Backup previous config files
   - [x] Create standalone module config for each waybar module
   - [x] Create separate config files for hyprland
