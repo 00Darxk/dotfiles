@@ -2,14 +2,15 @@
 
 set -euo pipefail
 
-ip=($(cat "$HOME/.config/.secrets/ip-address.txt"))
-mac=($(cat "$HOME/.config/.secrets/mac-address.txt"))
+ip=("$(cat "$HOME/.config/.secrets/ip-address.txt")")
+mac=("$(cat "$HOME/.config/.secrets/mac-address.txt")")
 
 if [ -z "$ip" ] || [[ "$ip" == *"255" ]] ; then
-    ip=$(arp | grep "$mac" | awk ' { print $1 } ')
+    ip=$(arp | grep "$mac" | awk ' { print $1 } ') ||
+    ip+="Unknown Addr"
 fi
 
-if ping -c 1 -W 1 $ip > /dev/null ; then
+if ping -c 1 -W 1 "$ip" > /dev/null 2>&1 ; then
     css_class="green"
     status_icon=""
 else
