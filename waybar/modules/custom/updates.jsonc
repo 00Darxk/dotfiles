@@ -5,9 +5,9 @@
         // "tooltip-format": "Aggiorna il Sistema\n<small>Pacchetti: {}</small>",
         "escape": false,
         "return-type": "json",
-        "exec": "~/.config/waybar/scripts/updates.sh",
+        "exec": "~/.config/waybar/scripts/getupdates.sh",
         "restart-interval": 3600,
-        "on-click": "kitty --title Aggiornamenti sh -c ~/.config/waybar/scripts/installaupdates.sh",
+        "on-click": "kitty --title Aggiornamenti sh -c ~/.config/waybar/scripts/installupdates.sh",
         "on-click-right": "kitty --title 'Pacchetti Installati' sh -c ~/.config/waybar/scripts/listpackages.sh",
         "tooltip": true
     }
