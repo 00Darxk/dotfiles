@@ -265,7 +265,7 @@ For `sddm` I use the [eucalyptus-drop](https://gitlab.com/Matt.Jolly/sddm-eucaly
     - [ ] Backup previous config files
   - [x] Create standalone module config for each waybar module
   - [x] Create separate config files for hyprland
-  - [ ] Split waybar/wol_tailscale into two separate modules
+  - [X] Split waybar/wol_tailscale into two separate modules
 
 # Contributions
 ...and suggestions are welcome, just open an issue or a pull request :)

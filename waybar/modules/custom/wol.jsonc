@@ -1,14 +1,11 @@
 {
-    "custom/wol_tailscale": {
-        "format": "{icon}",
-        "format-icons": [""],
-        "tooltip-format": "Sveglia e Connetti ad Host:\n<small>{}</small>",
+    "custom/wol": {
+        "format": "{}",
         "escape": false,
-        "return-type":"json",
-        "exec":"~/.config/waybar/scripts/tailscaleinfo.sh",
+        "return-type": "json",
+        "exec":"~/.config/waybar/scripts/wolinfo.sh",
         "interval": 60,
         "on-click": "~/.config/waybar/scripts/wol.sh",
-        "on-click-right": "kitty --title 'Connetti a '$(cat ~/.config/.secrets/hostname.txt)'' sh -c ~/.config/waybar/scripts/connectssh.sh",
         "tooltip": true
     }
 }
