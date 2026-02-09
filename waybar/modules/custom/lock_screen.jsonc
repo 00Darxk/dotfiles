@@ -3,7 +3,7 @@
         "format": "{icon}",        
         "format-icons": [""],
         "on-click": "swaylock",
-        "tooltip-format": "Schermata di Blocco",
+        "tooltip-format": "Lockscreen",
         "tooltip": true
     }
 }

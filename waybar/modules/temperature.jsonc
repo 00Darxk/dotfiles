@@ -8,7 +8,7 @@
         "critical-threshold": 80,
         "format-critical": " {temperatureC}°C",
         "on-click": "kitty --title btop sh -c 'btop'",
-        "tooltip-format": "Temperatura CPU",
+        "tooltip-format": "CPU Temperature",
         "tooltip": true
     }
 }

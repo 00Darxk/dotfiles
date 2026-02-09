@@ -2,13 +2,13 @@
     "custom/tailscale": {
         "format": "{icon}",
         "format-icons": [""],
-        "tooltip-format": "Connetti ad Host:\n<small>{}</small>",
+        "tooltip-format": "Connect to Host:\n<small>{}</small>",
         "escape": false,
         "return-type":"json",
         "exec":"~/.config/waybar/scripts/tailscaleinfo.sh",
         "interval": 60,
-        "on-click": "kitty --title 'Connetti a '$(cat ~/.config/.secrets/hostname.txt)'' sh -c ~/.config/waybar/scripts/connectssh.sh",
-        "on-click-right": "kitty --title 'Aggiungi host' sh -c ~/.config/waybar/scripts/addhost.sh",
+        "on-click": "kitty --title 'Connected to '$(cat ~/.config/.secrets/hostname.txt)'' sh -c ~/.config/waybar/scripts/connectssh.sh",
+        "on-click-right": "kitty --title 'Add Host' sh -c ~/.config/waybar/scripts/addhost.sh",
         "on-scroll-up": "~/.config/waybar/scripts/cyclehost.sh +1",
         "on-scroll-down": "~/.config/waybar/scripts/cyclehost.sh -1",
         "tooltip": true

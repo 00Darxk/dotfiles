@@ -4,7 +4,7 @@
         "format-icons": [""],
         //"on-click": "sh -c'(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
         "on-click": "wlogout --protocol layer-shell",
-        "tooltip-format": "Opzioni di Spegnimento",
+        "tooltip-format": "Power Options",
         "tooltip": true
     }
 }

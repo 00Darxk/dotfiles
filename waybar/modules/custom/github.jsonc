@@ -1,7 +1,7 @@
 {
     "custom/github": {
         "format": " {}",
-        "tooltip-format": "Notifiche GitHub",
+        "tooltip-format": "GitHub Notifications",
         "return-type": "json",
         "interval": 60,
         "exec": "~/.config/waybar/scripts/github.sh",

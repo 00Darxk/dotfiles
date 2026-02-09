@@ -33,7 +33,7 @@ fi
 # Output in JSON format for Waybar Module custom-updates
 # -------------------------------------------------------
 updates=$(("$updates_arch" + "$updates_aur"))
-tooltip="Aggiorna il Sistema (<span size=\"small\">${updates} Pacchetto/i):"$'\n'"${list_updates}</span>"
+tooltip="Update (<span size=\"small\">${updates} Package(s)):"$'\n'"${list_updates}</span>"
 
 if [ "$updates" -lt $threshhold_yellow ]; then
     css_class="green"
