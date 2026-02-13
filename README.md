@@ -12,29 +12,44 @@ Clone the repository to copy and use these configuration files.
 
 ```sh
 git clone https://github.com/00Darxk/dotfiles.git
-cd dotfiles
 ```
 
-You can install either the english (```main-en``` branch) or italians (```main``` branch) tooltip version, by switching to that branch and running the installation script. 
+You can install either the english (```main-en``` branch) or italians (```main-it``` branch) tooltip version directly:
+```sh
+git clone --single-branch --branch main-{lang} https://github.com/00Darxk/dotfiles.git
+```
+
+Or you can run the installation script from the ```main``` branch to choose which language to use during install. 
+Will eventually deprecate those branches, and just use a ```set-lang``` script to write the language changes on the copied configs and set the locale. It would be possibile to change language by simply re-running the script and copying the affected configs. 
 
 # Installation
 
 ## Automatic
 
 Run the [install script](./install.sh), it will try to install all needed [dependencies](#dependencies) 
-> [!CAUTION]
-> This script does not backup any existing config and does no error checking. It is meant for a fresh install.  
+> [!IMPORTANT]
+> This script does some error checking, and it tries to back up existing configs. Though it isn't perfect. 
 
 ```sh
+cd dotfiles
 ./install.sh
 ```
-Yay need to be installed, as its used by the script to install all the packages. Refer to the official [yay page](https://github.com/Jguer/yay?tab=readme-ov-file#installation) for installation.  
+Yay need to be installed, as its used by the script to install all the packages. Refer to the official [yay page](https://github.com/Jguer/yay?tab=readme-ov-file#installation) for installation, or you can install yay through the script, if you already have git installed. 
+
+You can install the configs under another user, by providing the username to the script:
+```sh
+./install foobar
+```
+If the user doesn't exists or its home directory doesn't exists, it will attempt to create it. It could be useful to try out the config on a temporary user like this. 
+
 
 ## Manual
 
 Below a table of each package that should be installed, and its purpose. If you choose to install another package for the same purpose, you should also check the corresponding configuration files. 
 
 ### Dependencies
+
+You can view and customize the packages it will install by editing the [dependencies](./dependencies) or [applications](./applications) file. You can comment out the package you don't want installed and add replacement if necessary. 
 
 #### Pacman packages
 
@@ -72,11 +87,11 @@ Below a table of each package that should be installed, and its purpose. If you 
 | `wol`                     | Wake-on-LAN tool for both CLI and web interfaces |
 | `jq`                      | CLI JSON processor |
 | `btop`                    | Monitor of system resources |
-| `telegram-desktop`        | Official Telegram Desktop client |
-| `discord`                 | All-in-one voice and text chat for games |
-| `steam`                   | Valve's digital software delivery system | 
-| `spotify-launcher`        | Client for spotify's apt repository |
-| `chromium`                | Web browser |
+| `telegram-desktop`        | Official Telegram Desktop client (optional) |
+| `discord`                 | All-in-one voice and text chat for games (optional) |
+| `steam`                   | Valve's digital software delivery system (optional) | 
+| `spotify-launcher`        | Client for spotify's apt repository (optional) |
+| `chromium`                | Web browser (optional) |
 | `tailscale`               | Mesh VPN |
 | `fzf`                     | CLI fuzzy finder |
 
@@ -93,9 +108,9 @@ pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar swayidle ttf-je
 | `dracula-gtk-theme`       | Default theme |
 | `dracula-icons-git`       | Default icons |
 | `sddm-eucalyptus-drop`    | Sddm theme    |
-| `notion-app-electron`     | Connected workspaces |
-| `vscodium-bin`            | Binary releases of VS Code without MS branding/telemetry/licensing |
-| `whatsdesk-bin`           | Unofficial client of Whatsapp
+| `notion-app-electron`     | Connected workspaces (optional) |
+| `vscodium-bin`            | Binary releases of VS Code without MS branding/telemetry/licensing (optional) |
+| `whatsdesk-bin`           | Unofficial client of Whatsapp (optional) |
 
 ```sh
 yay -S wlogout swaylock-effects dracula-gtk-theme dracula-icons-git sddm-eucalyptus-drop notion-app-electron vscodium-bin whatsdesk-bin
@@ -128,7 +143,7 @@ cp -R hypr kitty neofetch swayidle swaylock waybar wlogout rofi hyfetch.json .ba
 
 Set files as executable:
 ```bash
-chmod +x ~/.config/hypr/xdg-portal-hyprland
+chmod +x ~/.config/hypr/scripts/*
 chmod +x ~/.config/waybar/scripts/*
 ```
 
@@ -265,10 +280,10 @@ For `sddm` I use the [eucalyptus-drop](https://gitlab.com/Matt.Jolly/sddm-eucaly
   - [x] Add usefull information in the README
     - [ ] Module description
   - [x] Create a version with english toolip in waybar
-  - [ ] Improve installation script
+  - [x] Improve installation script
     - [ ] Add the option to choose which language to use in the installation script
       - [ ] Script to change tooltip language based on 'dotlang/  {language-code}.json'
-    - [ ] Backup previous config files
+    - [x] Backup previous config files
   - [x] Create standalone module config for each waybar module
   - [x] Create separate config files for hyprland
   - [X] Split waybar/wol_tailscale into two separate modules
