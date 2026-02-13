@@ -1,0 +1,88 @@
+{
+    "locale":{
+        "System_Locale.LANG": "en_GB.UTF-8",
+        "VC_Keymap": "uk",
+        "X11_Layout": "uk"
+    },
+    // neofetch/config.conf ?
+    // rofi/config.rasi // WIP
+    "rofi.config.entry.placeholder": "Search",
+    // swaylock/config: change locale of timestamp
+    // waybar/modules*
+    "waybar":{
+        "modules":{
+            "custom": {
+                "github.tooltip-format": "GitHub Notifications",
+                "lock_screen.tooltip-format": "Lockscreen",
+                "power_btn.tooltip-format": "Power Options",
+                "rofi":{ // quick start
+                    "format": "Search",
+                    "tooltip-format": "Apps"
+                },
+                "tailscale": {
+                    "tooltip-format": "Connect to Host",
+                    "on-click": "Session",
+                    "on-click-right": "Adding Host"
+                },
+                "updates":{
+                    "on-click": "Install Updates",
+                    "on-click-right": "Installed Packages"
+                },
+                "wl-gammarelay-temperature.tooltip-format": "Screen Temperature"
+            },
+            "backlight.tooltip-format": "Brightness",
+            "clock": { // todo update format
+                "format": "{:%H:%M:%S}",
+                "locale": "en_GB.UTF-8",
+                "format-alt": "{:L%a %d/%m/%y (%H:%M:%S)}"
+            },
+            "network.format-disconnected": "Disconnected",
+            "power-profiles-daemon.tooltip-format": "Power Profiles",
+            "temperature":{
+                "format": "{temperatureC}°C",
+                "tooltip-format": "CPU Temperature"    
+            }
+        },
+        "scripts":{
+            "addhost": {
+                "1": "Known hosts",
+                "2": "Add new host"
+            },
+            "connectssh":{
+                "1": "Connecting to",
+                "2": "Enter username"
+            },
+            "getupdates": {
+                "1": "Update",
+                "2": "Package(s)"
+            },
+            "installupdates":{
+                "1": "Pacman updates",
+                "2": "AUR updates",
+                "3": "Update the system?"
+            },
+            "sysmaintenance": {
+                "1": "Updating system",
+                "2": "Clearing pacman cache",
+                "3": "Space saved",
+                "4": "Removing orphan packages",
+                "5": "Clearing",
+                "6": "Space saved",
+                "7": "Clearing system logs"
+            },
+            "wolinfo":{
+                "1": "Unknown Addr",
+                "2": "Wake Host"
+            }
+        }
+    },
+    // wlogout/layout   
+    "wlogout.layout":{
+        "lock.text": "Lockscreen",
+        "hibernate.text": "Hibernate",
+        "logout.text": "Logout",
+        "shutdown.text": "Shutdown",
+        "suspend.text": "Suspend",
+        "reboot.text": "Reboot"
+    }
+}

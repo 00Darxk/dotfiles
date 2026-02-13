@@ -1,0 +1,88 @@
+{
+    "locale":{
+        "System_Locale.LANG": "it_IT.UTF-8",
+        "VC_Keymap": "it",
+        "X11_Layout": "it"
+    },
+    // neofetch/config.conf ?
+    // rofi/config.rasi
+    "rofi.config.entry.placeholder": "Search",
+    // swaylock/config: change locale of timestamp
+    // waybar/modules*
+    "waybar":{
+        "modules":{
+            "custom": {
+                "github.tooltip-format": "Notifiche GitHub",
+                "lock_screen.tooltip-format": "Schermata di Blocco",
+                "power_btn.tooltip-format": "Opzioni di Spegnimento",
+                "rofi":{
+                    "format": "Cerca",
+                    "tooltip-format": "Applicationi"
+                },
+                "tailscale": {
+                    "tooltip-format": "Connetti ad Host",
+                    "on-click": "Session",
+                    "on-click-right": "Aggiungi Host"
+                },
+                "updates":{
+                    "on-click": "Aggiornamento",
+                    "on-click-right": "Pacchetti Installati"
+                },
+                "wl-gammarelay-temperature.tooltip-format": "Temperatura Schermo"
+            },
+            "backlight.tooltip-format": "Luminosità",
+            "clock": {
+                "format": "{:%H:%M:%S}",
+                "locale": "it_IT.UTF-8",
+                "format-alt": "{:L%a %d/%m/%y (%H:%M:%S)}"
+            },
+            "network.format-disconnected": "Disconnesso",
+            "power-profiles-daemon.tooltip-format": "Opzioni di Risparmio",
+            "temperature":{
+                "format": "{temperatureC}°C",
+                "tooltip-format": "Temperatura CPU"    
+            }
+        },
+        "scripts":{
+            "addhost": {
+                "1": "Host noti",
+                "2": "Aggiungi nuovo host"
+            },
+            "connectssh":{
+                "1": "Connessionie a",
+                "2": "Inserire username"
+            },
+            "getupdates": {
+                "1": "Aggiorna il sistema",
+                "2": "Pacchetto/i"
+            },
+            "installupdates":{
+                "1": "Lista aggiornamneti pacman",
+                "2": "Lista aggiornamenti AUR",
+                "3": "Scaricare aggiornamenti?"
+            },
+            "sysmaintenance": {
+                "1": "Aggiornando il sistema",
+                "2": "Svuotando la cache di pacman",
+                "3": "Spazio liberato",
+                "4": "Rimuovendo pacchetti orfani",
+                "5": "Svuotando",
+                "6": "Spazio liberato",
+                "7": "Svuotando i log di sistema"
+            },
+            "wolinfo":{
+                "1": "IP Sconosciuto",
+                "2": "Sveglia Host"
+            }
+        }
+    },
+    // wlogout/layout   
+    "wlogout":{
+        "lock.text": "Blocca",
+        "hibernate.text": "Ibernazione",
+        "logout.text": "Disconnetti",
+        "shutdown.text": "Arresta il Sistema",
+        "suspend.text": "Sospendi",
+        "reboot.text": "Riavvia il sistema"
+    }
+}
