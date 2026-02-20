@@ -13,11 +13,15 @@ fi
 if ping -c 1 -W 1 "$ip" > /dev/null 2>&1 ; then
     css_class="green"
     status_icon=""
+elif [ "$ip" = "Unknown Addr" ] ; then
+    css_class="orange"
+    status_icon=""
 else
     css_class="red"
     # status_icon="X"
     status_icon=""
 fi
+
 
 tooltip+="Sveglia Host:"$'\n'"<small><span foreground = \"${css_class}\">${ip} (${mac})</span></small>"
 

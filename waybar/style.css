@@ -180,6 +180,10 @@ window#waybar.empty #window {
 #custom-wol.red {
     color: #fd8b9e; 
 }
+#custom-wol.orange {
+    color: #FFA500;
+}
+
 
 #custom-updates.green {
     color: #a6e3a1;
