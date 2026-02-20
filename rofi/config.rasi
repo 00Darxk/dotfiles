@@ -53,13 +53,13 @@ window {
     width:                       1000px;
     x-offset:                    0px;
     y-offset:                    0px;
-    background-image:            url("~/.config/rofi/images/f-temp.png", width);
+    /* background-image:            url("~/.config/rofi/images/f-temp.png", width); */
 
     /* properties for all widgets */
     enabled:                     true;
     border-radius:               15px;
     cursor:                      "default";
-    background-color:            transparent;
+    background-color:            #00000060;
 }
 
 /*****----- Main Box -----*****/
