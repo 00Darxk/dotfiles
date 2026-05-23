@@ -38,9 +38,9 @@ Yay need to be installed, as its used by the script to install all the packages.
 
 You can install the configs under another user, by providing the username to the script:
 ```sh
-./install foobar
+./install.sh foobar
 ```
-If the user doesn't exists or its home directory doesn't exists, it will attempt to create it. It could be useful to try out the config on a temporary user like this. 
+If the user doesn't exists or its home directory doesn't exists, it will attempt to create it. It could be useful to try out the config on a temporary user. 
 
 
 ## Manual
