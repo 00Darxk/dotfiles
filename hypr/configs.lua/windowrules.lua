@@ -70,7 +70,6 @@ hl.window_rule({
 hl.window_rule({
     match     = { class = "^(chromium)$"},
     opacity   = "0.95 0.8",
-    animation = "popin"
 })
 hl.window_rule({
     match     = { class = "^(rofi)$"},

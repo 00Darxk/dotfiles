@@ -60,9 +60,9 @@ hl.bind(
 )
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("paximer -t"))
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("paximer -d 5"), { repeating = true })
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("paximer -i 5"), { repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pamixer -t"))
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pamixer -d 5"), { repeating = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pamixer -i 5"), { repeating = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("pamixer --default-source -t"))
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 10%+"), { repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 10%-"), { repeating = true })
