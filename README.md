@@ -19,7 +19,7 @@ You can install either the english (```main-en``` branch) or italians (```main-i
 git clone --single-branch --branch main-{lang} https://github.com/00Darxk/dotfiles.git
 ```
 
-Or you can run the installation script from the ```main``` branch to choose which language to use during install. 
+<!-- Or you can run the installation script from the ```main``` branch to choose which language to use during install.  -->
 Will eventually deprecate those branches, and just use a ```set-lang``` script to write the language changes on the copied configs and set the locale. It would be possibile to change language by simply re-running the script and copying the affected configs. 
 
 # Installation
@@ -108,9 +108,8 @@ pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar swayidle ttf-je
 | `dracula-gtk-theme`       | Default theme |
 | `dracula-icons-git`       | Default icons |
 | `sddm-eucalyptus-drop`    | Sddm theme    |
-| `notion-app-electron`     | Connected workspaces (optional) |
 | `vscodium-bin`            | Binary releases of VS Code without MS branding/telemetry/licensing (optional) |
-| `whatsdesk-bin`           | Unofficial client of Whatsapp (optional) |
+
 
 ```sh
 yay -S wlogout swaylock-effects dracula-gtk-theme dracula-icons-git sddm-eucalyptus-drop notion-app-electron vscodium-bin whatsdesk-bin
