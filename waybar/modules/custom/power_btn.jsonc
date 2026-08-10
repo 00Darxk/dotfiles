@@ -3,7 +3,7 @@
         "format" : "{icon}",
         "format-icons": [""],
         //"on-click": "sh -c'(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-        "on-click": "wlogout --protocol layer-shell",
+        "on-click": "wlogout -b 6 -T 400 -B 400  --protocol layer-shell",
         "tooltip-format": "Opzioni di Spegnimento",
         "tooltip": true
     }
