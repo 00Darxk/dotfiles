@@ -232,6 +232,9 @@ In the same way you can edit the top line of the [swaylock config](./swaylock/co
 
 ### Wake on LAN Module 
 
+> [!NOTE]
+> deprecated, won't update it
+
 If you'd like to use the waybar module to wake a machine over LAN either follow the instructions in the installation scripts or create the ```./secrets``` folder, the ```ip-address.txt``` and ```mac-address.txt``` files, and uncomment the module from the waybar config:
 ```sh
 sed -r -i "s|(^.*)//[ ]*([^$]*wol.*$)|\1\2|" "$HOME/.config/waybar/config.jsonc"

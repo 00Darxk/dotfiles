@@ -299,7 +299,7 @@ main() {
     install_dependencies
     copy_configs
 
-    enable_wol_waybar
+    # enable_wol_waybar
     enable_tailscale_waybar
 
     install_starship
