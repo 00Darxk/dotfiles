@@ -76,10 +76,10 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 -- Changing workspaces and windows
 -- cycle through the previous active workspace
 hl.bind(mainMod .. " + Tab", hl.dsp.focus({ workspace = "previous" }))
--- cycle through applications on same workspace
+-- cycle through windows on same workspace
 hl.bind("ALT + TAB", hl.dsp.window.cycle_next())
--- cycle through applications on same workspace backwards
-hl.bind("ALT + SHIFT + TAB", hl.dsp.window.cycle_next({ next = "previous" }))
+-- cycle through windows on same workspace backwards
+hl.bind("ALT + SHIFT + TAB", hl.dsp.window.cycle_next({ next = false }))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
