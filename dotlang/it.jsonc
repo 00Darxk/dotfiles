@@ -6,7 +6,7 @@
     },
     // neofetch/config.conf ?
     // rofi/config.rasi
-    "rofi.config.entry.placeholder": "Search",
+    "rofi.config.entry.placeholder": "Cerca",
     // swaylock/config: change locale of timestamp
     // waybar/modules*
     "waybar":{

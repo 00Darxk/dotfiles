@@ -103,15 +103,11 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
--- todo change as you need
+
 -- Change background image
-hl.bind(
-	mainMod .. " + SHIFT + SPACE + 1",
-	hl.dsp.exec_cmd("swaybg -m fill -i ~/.config/hypr/wallpapers/moon-over-mondstat.jpg")
-)
-hl.bind(mainMod .. " + SHIFT + SPACE + 2", hl.dsp.exec_cmd("swaybg -m fill -i ~/.config/hypr/wallpapers/sucrose.jpg"))
-hl.bind(
-	mainMod .. " + SHIFT + SPACE + 3",
-	hl.dsp.exec_cmd("swaybg -m fill -i ~/.config/hypr/wallpapers/sayu-without-char.jpg")
-)
-hl.bind(mainMod .. " + SHIFT + SPACE + 4", hl.dsp.exec_cmd("swaybg -m fill -i ~/.config/hypr/wallpapers/xiao.jpg "))
+for i = 1, 10 do
+	hl.bind(
+		mainMod .. " + SHIFT + CTRL + " .. i % 10,
+		hl.dsp.exec_cmd("wallpapers=(${HOME}/.config/hypr/wallpapers/*) && swaybg -m fill -i \"${wallpapers[" .. i - 1 .. "]}\"")
+	)
+end

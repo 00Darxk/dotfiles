@@ -1,55 +1,60 @@
 # My dotfiles
-...and an installation script for a fresh linux with yay, hyprland and waybar. 
 
+...and an installation script for a fresh linux with yay, hyprland and waybar.
 
 ![screen](./showcases/moon-over-mondstat-showcase.png)
-_I like rice, but i prefer pasta_    
+_I like rice, but i prefer pasta_
 
 > [!NOTE]
-> This rice is heavily inspired (copied) from [SolDoesTech](https://github.com/soldoestech)'s hyprland repos, check those if you'd like a probably better tested config. It also uses config taken from [klpod0s](https://github.com/klpod221/klpod0s). If there are any issues with the [hyprland](https://wiki.hyprland.org/) and [waybar](https://github.com/Alexays/Waybar/wiki/) configuration, before opening an issue, check with the wikis as i have no idea what i'm doing, also don't trust random installation scripts online :). If there are issues with the installation scripts report it here ty. 
+> This rice is heavily inspired (copied) from [SolDoesTech](https://github.com/soldoestech)'s hyprland repos, check those if you'd like a probably better tested config. It also uses config taken from [klpod0s](https://github.com/klpod221/klpod0s). If there are any issues with the [hyprland](https://wiki.hyprland.org/) and [waybar](https://github.com/Alexays/Waybar/wiki/) configuration, before opening an issue, check with the wikis as i have no idea what i'm doing, also don't trust random installation scripts online :). If there are issues with the installation scripts report it here ty.
 
-Clone the repository to copy and use these configuration files. 
+Clone the repository to copy and use these configuration files.
 
 ```sh
 git clone https://github.com/00Darxk/dotfiles.git
 ```
 
 You can install either the english (```main-en``` branch) or italians (```main-it``` branch) tooltip version directly:
+
 ```sh
 git clone --single-branch --branch main-{lang} https://github.com/00Darxk/dotfiles.git
 ```
 
 <!-- Or you can run the installation script from the ```main``` branch to choose which language to use during install.  -->
-Will eventually deprecate those branches, and just use a ```set-lang``` script to write the language changes on the copied configs and set the locale. It would be possibile to change language by simply re-running the script and copying the affected configs. 
+Will eventually deprecate those branches, and just use a ```set-lang``` script to write the language changes on the copied configs and set the locale. It would be possibile to change language by simply re-running the script and copying the affected configs.
 
 # Installation
 
 ## Automatic
 
-Run the [install script](./install.sh), it will try to install all needed [dependencies](#dependencies) 
+Run the [install script](./install.sh), it will try to install all needed [dependencies](#dependencies)
 > [!IMPORTANT]
-> This script does some error checking, and it tries to back up existing configs. Though it isn't perfect. 
+> This script does some error checking, and it tries to back up existing configs. Though it isn't perfect.
 
 ```sh
 cd dotfiles
 ./install.sh
 ```
-Yay need to be installed, as its used by the script to install all the packages. Refer to the official [yay page](https://github.com/Jguer/yay?tab=readme-ov-file#installation) for installation, or you can install yay through the script, if you already have git installed. 
+
+Yay need to be installed, as its used by the script to install all the packages. Refer to the official [yay page](https://github.com/Jguer/yay?tab=readme-ov-file#installation) for installation, or you can install yay through the script, if you already have git installed.
 
 You can install the configs under another user, by providing the username to the script:
+
 ```sh
 ./install.sh foobar
 ```
-If the user doesn't exists or its home directory doesn't exists, it will attempt to create it. It could be useful to try out the config on a temporary user. 
 
+If the user doesn't exists or its home directory doesn't exists, it will attempt to create it. It could be useful to try out the config on a temporary user.
+
+The script will download only the four [showcased wallpapers](#wallpapers). You can download more by enabling the wanted wallpapers in the [`wallpapers.json`](./wallpapers.json) file, or manually downloading them to the [`hypr/wallpapers`](hypr/wallpapers/) directory
 
 ## Manual
 
-Below a table of each package that should be installed, and its purpose. If you choose to install another package for the same purpose, you should also check the corresponding configuration files. 
+Below a table of each package that should be installed, and its purpose. If you choose to install another package for the same purpose, you should also check the corresponding configuration files.
 
 ### Dependencies
 
-You can view and customize the packages it will install by editing the [dependencies](./dependencies) or [applications](./applications) file. You can comment out the package you don't want installed and add replacement if necessary. 
+You can view and customize the packages it will install by editing the [dependencies](./dependencies) or [applications](./applications) file. You can comment out the package you don't want installed and add replacement if necessary.
 
 #### Pacman packages
 
@@ -89,18 +94,18 @@ You can view and customize the packages it will install by editing the [dependen
 | `btop`                    | Monitor of system resources |
 | `telegram-desktop`        | Official Telegram Desktop client (optional) |
 | `discord`                 | All-in-one voice and text chat for games (optional) |
-| `steam`                   | Valve's digital software delivery system (optional) | 
+| `steam`                   | Valve's digital software delivery system (optional) |
 | `spotify-launcher`        | Client for spotify's apt repository (optional) |
 | `chromium`                | Web browser (optional) |
 | `tailscale`               | Mesh VPN |
 | `fzf`                     | CLI fuzzy finder |
-
 
 ```sh
 pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar swayidle ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp pamixer brightnessctl gvfs bluez bluez-utils blueman nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop discord steam spotify-launcher chromium tailscale fzf
 ```
 
 #### AUR packages
+
 | Package | Description |
 | ------- | ----------- |
 | `wlogout`                 | Logout menu |
@@ -110,22 +115,22 @@ pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar swayidle ttf-je
 | `sddm-eucalyptus-drop`    | Sddm theme    |
 | `vscodium-bin`            | Binary releases of VS Code without MS branding/telemetry/licensing (optional) |
 
-
 ```sh
-yay -S wlogout swaylock-effects dracula-gtk-theme dracula-icons-git sddm-eucalyptus-drop notion-app-electron vscodium-bin whatsdesk-bin
+yay -S wlogout swaylock-effects dracula-gtk-theme dracula-icons-git sddm-eucalyptus-drop notion-app-electron vscodium-bin
 ```
-Or your AUR helper of choice. 
+
+Or your AUR helper of choice.
 
 #### Optional
 
-Here is a list of useful and funny packages: 
+Here is a list of useful and funny packages:
 
 | Package | Description |
 | ------- | ----------- |
 | `cowsay` | Configurable talking cow |
 | `fortune-mod` | Fortune cookie program from BSG games |
 | `pipes.sh`<sup>AUR</sup> | Animated pipes terminal screensaver |
-| `figlet`      | A program for making large letters out of ordinary text | 
+| `figlet`      | A program for making large letters out of ordinary text |
 | `imagemagick` | An image viewing/manipulation program |
 | `inkscape` | Professional vector graphics editor |
 
@@ -136,23 +141,26 @@ yay -S cowsay fortune-mod pipes.sh imagemagick inkscape
 ### Config
 
 Copy the configs to the `~/.config` folder:
+
 ```bash
 cp -R hypr kitty neofetch swayidle swaylock waybar wlogout rofi hyfetch.json .bashrc starship.toml ~/.config/
-``` 
+```
 
 Set files as executable:
+
 ```bash
 chmod +x ~/.config/hypr/scripts/*
 chmod +x ~/.config/waybar/scripts/*
 ```
 
 Enables services:
+
 ```bash
 sudo systemctl enable tailscaled
 sudo systemctl enable bluetooth.service
 ```
 
-See [WoL and Tailscale](#wake-on-lan-and-tailscale-module) and [GitHub Notification](#github-notifications-module) section to manually configure the modules. 
+See [WoL and Tailscale](#wake-on-lan-and-tailscale-module) and [GitHub Notification](#github-notifications-module) section to manually configure the modules.
 
 # Overview
 
@@ -162,19 +170,19 @@ See [WoL and Tailscale](#wake-on-lan-and-tailscale-module) and [GitHub Notificat
 
 You can check the keybinds in the [hyprland config](./hypr/hyprland.conf), or on the table below.
 
-It contains explicit keybinds for F1 to F6 function keys, although they, and multimedia keys, should all work out of the box; if there are issues check your keyboard on the [wiki](https://wiki.archlinux.org/title/Extra_keyboard_keys), and bind them to the corresponding keys. 
+It contains explicit keybinds for laptop multimedia keys for audio, LCD brightness, although they should all work out of the box; if there are issues check your keyboard on the [wiki](https://wiki.archlinux.org/title/Extra_keyboard_keys), and bind them to the corresponding keys.
 
 <!-- | <kbd>FN1</kbd>                                 | Mute speaker |
 | <kbd>FN2</kbd>                                 | Increase speaker volume |
 | <kbd>FN3</kbd>                                 | Decrease speaker volume |
 | <kbd>FN4</kbd>                                 | Mute microphone |
 | <kbd>FN5</kbd>                                 | Decrease brightness |
-| <kbd>FN6</kbd>                                 | Increase brightness | -->
-| Keybind | Action |
-| ------- | ------ |
 | <kbd>XF86AudioPlay</kbd>                       | Play-pause current player |
 | <kbd>XF86AudioPrev</kbd>                       | Go to next track on current player |
 | <kbd>XF86AudioNext</kbd>                       | Go to previous track on current player |
+| <kbd>FN6</kbd>                                 | Increase brightness | -->
+| Keybind | Action |
+| ------- | ------ |
 | <kbd>Super</kbd>+<kbd>Q</kbd>                  | Open Kitty terminal                               |
 | <kbd>Super</kbd>+<kbd>W</kbd>                  | Kill active window                                |
 | <kbd>Super</kbd>+<kbd>L</kbd>                  | Lock the screen, using swaylock                   |
@@ -186,7 +194,7 @@ It contains explicit keybinds for F1 to F6 function keys, although they, and mul
 | <kbd>Super</kbd>+<kbd>Space</kbd>              | Show the graphical app launcher and window switcher using rofi |
 | <kbd>Super</kbd>+<kbd>S</kbd>                  | Take a screenshot                                 |
 | <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> | Reload waybar                                     |
-| <kbd>Super</kbd>+<kbd>[1~9]</kbd>              | Open Thunar (1), WhatsDesk (2), Chromium (3), Discord (4), Telegram Desktop (5), Steam (6), none (7), VSCodium (8), Spotify Launcher (9) |
+| <kbd>Super</kbd>+<kbd>[1~9]</kbd>              | Open Thunar (1), Chromium (3), Discord (4), Telegram Desktop (5), Steam (6), VSCodium (8), Spotify Launcher (9) |
 | <kbd>Super</kbd>+<kbd>Ctrl</kbd>+<kbd>0</kbd>  | Reset screen temperature to 6500K                 |
 | <kbd>Super</kbd>+<kbd>Ctrl</kbd>+<kbd>↑</kbd>  | Increase screen temperature by 500K               |
 | <kbd>Super</kbd>+<kbd>Ctrl</kbd>+<kbd>↓</kbd>  | Decrease screen temperature by 500K               |
@@ -199,9 +207,11 @@ It contains explicit keybinds for F1 to F6 function keys, although they, and mul
 | <kbd>Super</kbd>+<kbd>Scroll↑</kbd><kbd>Scroll↓</kbd> | Scroll through existing workspaces         |
 | <kbd>Super</kbd>+<kbd>LMB</kbd>                | Move window with dragging                         |
 | <kbd>Super</kbd>+<kbd>RMB</kbd>                | Resize window with dragging                       |
-| <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd>+<kbd>[1~4]</kbd>    | Change background to [Moon Over Mondstat](./hypr/moon-over-mondstat.jpg) (1), [Sucrose](./hypr/sucrose.jpg) (2), [Sayu Birthday Without Characters](./hypr/sayu-without-char.jpg) (3), [Xiao](./hypr/xiao.jpg) (4) |
+| <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>[1~0]</kbd>    | Change background to first nth wallpapers under [`hypr/wallpapers/`](hypr/wallpapers/) |
 
 ### Wallpapers
+
+Wallpapers downloaded by default:
 
 <div class="grid" markdown>
 
@@ -215,85 +225,90 @@ It contains explicit keybinds for F1 to F6 function keys, although they, and mul
 
 </div>
 
-Credit to [Shade of a cat](https://shadeofacat.carrd.co/) and [Sevenics](https://www.deviantart.com/sevenics) for the amazing art! 
-> [!NOTE]
-> I don't remember why I converted all the backgrounds from png to jpg, it should work either way. Too lazy to check the wiki. 
+Credit to [Shade of a cat](https://shadeofacat.carrd.co/) and [Sevenics](https://www.deviantart.com/sevenics) for the amazing art!
 
-To add a new wallpaper to hyprland, add a line at the end of the [hyprland.conf](./hypr/hyprland.conf) file, specifying the location of the image. 
-To set it at start, change the location of the exec call inside the [config](./hypr/hyprland.conf) to the background image. 
+You can download more wallpapers by enabling them in the [`wallpapers.json`](wallpapers.json) file before running the installation script, or manually
 
-In the same way you can edit the top line of the [swaylock config](./swaylock/config) to change the background image. 
+To add a new wallpaper to hyprland, add a line at the end of the [keybinds.lua](./hypr/configs.lua/keybinds.lua) file, specifying the path to the image.
+To set it at start, change the path of the exec call inside the [autostart.lua](./hypr/configs.lua/autostart.lua) to the background image.
 
-## Waybar 
+In the same way you can edit the top line of the [swaylock config](./swaylock/config) to change the background image.
+
+## Waybar
 <!-- TODO add module description, link to wiki -->
 ### Default Modules
 
 ### Hyprland Modules
 
-### Wake on LAN Module 
+### Wake on LAN Module
 
 > [!NOTE]
 > deprecated, won't update it
 
 If you'd like to use the waybar module to wake a machine over LAN either follow the instructions in the installation scripts or create the ```./secrets``` folder, the ```ip-address.txt``` and ```mac-address.txt``` files, and uncomment the module from the waybar config:
+
 ```sh
 sed -r -i "s|(^.*)//[ ]*([^$]*wol.*$)|\1\2|" "$HOME/.config/waybar/config.jsonc"
 ```
-It is off by default. 
 
+It is off by default.
 
-The [wol.sh](./waybar/scripts/wol.sh) script sends a magic packet to the machine, using the [wol](https://sourceforge.net/projects/wake-on-lan/) package. Change the script if you would like to use a different application. You can run the script by clicking on the module. 
+The [wol.sh](./waybar/scripts/wol.sh) script sends a magic packet to the machine, using the [wol](https://sourceforge.net/projects/wake-on-lan/) package. Change the script if you would like to use a different application. You can run the script by clicking on the module.
 
-It periodically pings the machine with the script [wolinfo.sh](./waybar/scripts/wolinfo.sh) and shows that machine's status. If you used a broadcast address as the ip and the ip isn't in your arp table, it won't correctly show this status. 
+It periodically pings the machine with the script [wolinfo.sh](./waybar/scripts/wolinfo.sh) and shows that machine's status. If you used a broadcast address as the ip and the ip isn't in your arp table, it won't correctly show this status.
 
 ### Tailscale Module
 
 The Tailscale module can be used to SSH into another machine using its tailscale's IP and it shows the statuses of selected machines from your tailnet in the tooltip. To enable uncomment the module in the waybar config:
+
 ```sh
 sed -r -i "s|(^.*)//[ ]*([^$]*tailscale.*$)|\1\2|" "$HOME/.config/waybar/config.jsonc"
 ```
+
 It is off by default.
 
 For this create the ```hostname.txt``` and ```hostnames.txt``` for the selected machiens inside the ```.secrets``` folder. You can run the [ssh script](./waybar/scripts/connectssh.sh) by clicking the module on waybar. You can add a new host by right-clicking, and cycling through the provided hosts by scrolling up or down
 
 ### GitHub Notifications Module
 
-Instructions in the waybar [wiki](https://github.com/Alexays/Waybar/wiki/Module:-Custom:-Simple#github-notifications). Place the ```notifications.token``` inside the ```.secrets``` folder. 
+Instructions in the waybar [wiki](https://github.com/Alexays/Waybar/wiki/Module:-Custom:-Simple#github-notifications). Place the ```notifications.token``` inside the ```.secrets``` folder.
 
 ## Wlogout
 
-This configuration is *almost* entirely taken from [klpod0s](https://github.com/klpod221/klpod0s), an aestethic, dynamic and minimal configuration for hyprland; just changed the color theme and tweaked a bit. 
+This configuration is _almost_ entirely taken from [klpod0s](https://github.com/klpod221/klpod0s), an aestethic, dynamic and minimal configuration for hyprland; just changed the color theme and tweaked a bit.
 
 ## Rofi
 
-This configuration is taken, and edited, from [adi1090's rofi collection](https://github.com/adi1090x/rofi). 
+This configuration is taken, and edited, from [adi1090's rofi collection](https://github.com/adi1090x/rofi).
 
 ## Themes
 
-I tried to base it off this [color scheme](https://color.adobe.com/it/olor-Theme-color-theme-18068611/), but I'm not really good with that, if someone who knows colors could help I'd be very thankful :). 
+I tried to base it off this [color scheme](https://color.adobe.com/it/olor-Theme-color-theme-18068611/), but I'm not really good with that, if someone who knows colors could help I'd be very thankful :).
 
 I use [squared theme](https://www.gnome-look.org/p/2206255) for gtk, and [ant-dark](https://store.kde.org/p/1640981/) icons theme. To add themes and icon themes download and unzip theme respectively in ```~/.themes``` and ```~/.local/share/icons```, use this last directory to store cursor icons (i use my oshi [Rin Penrose](https://www.gnome-look.org/p/2260618)'s)
 
-For `sddm` I use the [eucalyptus-drop](https://gitlab.com/Matt.Jolly/sddm-eucalyptus-drop) theme, it is available on the AUR, and installed through the [install script](./install.sh). 
+For `sddm` I use the [eucalyptus-drop](https://gitlab.com/Matt.Jolly/sddm-eucalyptus-drop) theme, it is available on the AUR, and installed through the [install script](./install.sh).
 
 # To-Dos
-  - [x] Working To-Dos
-  - [x] Test the installation script :3 
-  - [x] Add usefull information in the README
-    - [ ] Module description
-  - [x] Create a version with english toolip in waybar
-  - [x] Improve installation script
-    - [ ] Add the option to choose which language to use in the installation script
-      - [ ] Script to change tooltip language based on 'dotlang/  {language-code}.json'
-    - [x] Backup previous config files
-  - [x] Create standalone module config for each waybar module
-  - [x] Create separate config files for hyprland
-  - [X] Split waybar/wol_tailscale into two separate modules
+
+- [x] Working To-Dos
+- [x] Test the installation script :3
+- [x] Add usefull information in the README
+  - [ ] Module description
+- [x] Create a version with english toolip in waybar
+- [x] Improve installation script
+  - [ ] Add the option to choose which language to use in the installation script
+    - [ ] Script to change tooltip language based on 'dotlang/  {language-code}.json'
+  - [x] Backup previous config files
+- [x] Create standalone module config for each waybar module
+- [x] Create separate config files for hyprland
+- [X] Split waybar/wol_tailscale into two separate modules
+
 
 # Contributions
 ...and suggestions are welcome, just open an issue or a pull request :)
 
 # See Also
 
-[SolDoesTech](https://github.com/soldoestech), [LierB](https://github.com/LierB/dotfiles), [klpod221](https://github.com/klpod221/klpod0s) and hyprland configs; [sejjy's waybar config](https://github.com/sejjy/mechabar) and [adi1090's rofi config collections](https://github.com/adi1090x/rofi), 
-The [hyprland](https://wiki.hyprland.org/) and [waybar](https://github.com/Alexays/Waybar/wiki/) wikis. [Shade of a cat](https://shadeofacat.carrd.co/) and [Sevenics](https://www.deviantart.com/sevenics) amazing art. 
+[SolDoesTech](https://github.com/soldoestech), [LierB](https://github.com/LierB/dotfiles), [klpod221](https://github.com/klpod221/klpod0s) and hyprland configs; [sejjy's waybar config](https://github.com/sejjy/mechabar) and [adi1090's rofi config collections](https://github.com/adi1090x/rofi),
+The [hyprland](https://wiki.hyprland.org/) and [waybar](https://github.com/Alexays/Waybar/wiki/) wikis. [Shade of a cat](https://shadeofacat.carrd.co/) and [Sevenics](https://www.deviantart.com/sevenics) amazing art.

@@ -181,6 +181,27 @@ copy_configs() {
     fi
 }
 
+### Download wallpapers ###
+download_wallpapers(){
+    for item in $(cat wallpapers.json | jq -c '.gdrive[]'); do
+        fileId="$(echo $item | jq -r .fileId)"
+        fileName="$(echo $item | jq -r .fileName)"
+        download="$(echo $item | jq -r .download)"
+        if [ $download = 'true' ] ; then
+            download_gdrive $fileId $fileName
+        fi
+    done
+}
+
+### Download Google Drive images ###
+download_gdrive(){
+    fileId="$1"
+    fileName="$2"
+    curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${fileId}" > /dev/null
+    code="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"  
+    curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${code}&id=${fileId}" -o "${home}/.config/hypr/wallpapers/${fileName}"
+}
+
 backup_configs() {
     for cfg in hypr kitty neofetch swaylock waybar wlogout rofi hyfetch.json; do
         mv "$home/.config/$cfg" "$home/.config/$cfg.bak"
@@ -308,4 +329,4 @@ main() {
     close_script
 }
 
-main $usercfg
+# main $usercfg
