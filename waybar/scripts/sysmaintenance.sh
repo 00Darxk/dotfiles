@@ -1,21 +1,28 @@
 # This code is almost entirely taken from Mr. Cejas's blog: https://fernandocejas.com/blog/engineering/2022-03-30-arch-linux-system-maintance/
-echo "Updating system"
+updating="Updating system"
+clear="Clearing pacman cache"
+space="Space saved"
+orphans="Removing orphans packages"
+clearing="Clearing"
+logs="Clearing system logs"
+
+echo "$updating"
 yay -Syu
 
-echo "Clearing pacman cache"
+echo "$clear"
 pacman_cache_space_used="$(du -sh /var/cache/pacman/pkg/)"
 paccache -r 
-echo "Space saved: $pacman_cache_space_used" 
+echo "$space: $pacman_cache_space_used" 
 
-echo "Removing orphan packages"
+echo "$orphans"
 yay -Qdtq | yay -Rns -
 
-echo "Clearing ~/.cache"
+echo "$clearing ~/.cache"
 home_cache_used="$(du -sh ~/.cache)"
 rm -rf ~/.cache/
-echo "Spaced saved: $home_cache_used"
+echo "$space: $home_cache_used"
 
-echo "Clearing system logs"
+echo "$logs"
 journalctl --vacuum-time=7d
 
 

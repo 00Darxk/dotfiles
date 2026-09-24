@@ -2,6 +2,9 @@ threshhold_green=0
 threshhold_yellow=15
 threshhold_red=100
 
+update="Update"
+packages="Package(s)"
+
 # -------------------------------------------------------
 # Calculate the available updates pacman and aur (with yay)
 # -------------------------------------------------------
@@ -20,7 +23,7 @@ list_updates=""
 
 if [ "$updates_arch" -gt 0 ]; then
     list_updates+="${list_updates_arch}"
-    if [ "$updates_aur" -gt 0 ]; then ## TODO sistemare brutto
+    if [ "$updates_aur" -gt 0 ]; then
         list_updates+="\n"
     fi
 fi
@@ -33,7 +36,7 @@ fi
 # Output in JSON format for Waybar Module custom-updates
 # -------------------------------------------------------
 updates=$(("$updates_arch" + "$updates_aur"))
-tooltip="Aggiorna il Sistema (<span size=\"small\">${updates} Pacchetto/i):"$'\n'"${list_updates}</span>"
+tooltip="$update (<span size=\"small\">${updates} $packages):"$'\n'"${list_updates}</span>"
 
 if [ "$updates" -lt $threshhold_yellow ]; then
     css_class="green"
