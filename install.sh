@@ -173,7 +173,7 @@ copy_configs() {
         fi
 
         echo -e "Copying config files...\n"
-        cp -R hypr kitty neofetch swaylock waybar wlogout rofi hyfetch.json "$home/.config/"
+        cp -R hypr kitty neofetch swayidle swaylock waybar wlogout rofi hyfetch.json "$home/.config/"
 
         # Set some files as exactable 
         chmod +x "$home/.config/hypr/scripts*"
@@ -204,7 +204,7 @@ download_gdrive(){
 
 backup_configs() {
     for cfg in hypr kitty neofetch swaylock waybar wlogout rofi hyfetch.json; do
-        mv "$home/.config/$cfg" "$home/.config/$cfg.bak"
+        [ ! -d "$home/.config/$cgf" ] || mv "$home/.config/$cfg" "$home/.config/$cfg.bak"
     done
 }
 
@@ -274,8 +274,8 @@ install_starship() {
     if [[ $STAR == "Y" || $STAR == "y" ]] || [ -z "$STAR" ] ; then
         # install the starship shell
         echo -e "Backing up existing .bashrc and starship files"
-        mv "$home/.bashrc" "$home/.bashrc.bak"
-        mv "$home/.config/starship.toml" "$home/.config/starship.toml.bak"  
+        [ ! -f "$home/.bashrc" ] || mv "$home/.bashrc" "$home/.bashrc.bak"
+        [ ! -f "$home/.starship.toml" ] || mv "$home/.config/starship.toml" "$home/.config/starship.toml.bak"  
         echo -e "Updating .bashrc"
         echo -e '\neval "$(starship init bash)"' >> ".bashrc"
         echo -e "copying starship config file to '$home/.config' ...\n"
@@ -323,10 +323,11 @@ main() {
     # enable_wol_waybar
     enable_tailscale_waybar
 
+    download_wallpapers
     install_starship
     install_apps
 
     close_script
 }
 
-# main $usercfg
+main $usercfg
