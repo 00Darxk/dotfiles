@@ -111,3 +111,6 @@ for i = 1, 10 do
 		hl.dsp.exec_cmd("wallpapers=(${HOME}/.config/hypr/wallpapers/*) && swaybg -m fill -i \"${wallpapers[" .. i - 1 .. "]}\"")
 	)
 end
+
+-- Cycle through tooltip languages
+hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.exec_cmd("${HOME}/.config/hypr/scripts/cycle_language.sh && ${HOME}/.config/waybar/scripts/launch.sh"))

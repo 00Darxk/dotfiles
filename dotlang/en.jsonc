@@ -2,11 +2,7 @@
     "locale.System_Locale.LANG": "en_GB.UTF-8",
     "locale.VC_Keymap": "uk",
     "locale.X11_Layout": "uk",
-    // neofetch/config.conf ?
-    // rofi/config.rasi // WIP
     "rofi.config.entry.placeholder": "Search",
-    // swaylock/config: change locale of timestamp
-    // waybar/modules*
     "waybar.modules.custom.github.tooltip-format": "GitHub Notifications",
     "waybar.modules.custom.lock_screen.tooltip-format": "Lockscreen",
     "waybar.modules.custom.power_btn.tooltip-format": "Power Options",
@@ -19,7 +15,7 @@
     "waybar.modules.custom.update.on-click-right": "Installed Packages",
     "waybar.modules.custom.wl-gammarelay-temperature.tooltip-format": "Screen Temperature",
     "waybar.modules.backlight.tooltip-format": "Brightness",
-    "waybar.modules.clock.format": "{:%H:%M:%S}", // todo update format
+    "waybar.modules.clock.format": "{:%H:%M:%S}",
     "waybar.modules.clock.locale": "en_GB.UTF-8",
     "waybar.modules.clock.format-alt": "{:L%a %d/%m/%y (%H:%M:%S)}",
     "waybar.modules.network.format-disconnected": "Disconnected",
@@ -42,7 +38,6 @@
     "waybar.scripts.sysmaintenance.": "Clearing system logs",
     "waybar.scripts.wolinfo.unknown": "Unknown Addr",
     "waybar.scripts.wolinfo.wake": "Wake Host",
-    // wlogout/layout
     "wlogout.layout.lock.text": "Lockscreen",
     "wlogout.layout.hibernate.text": "Hibernate",
     "wlogout.layout.logout.text": "Logout",

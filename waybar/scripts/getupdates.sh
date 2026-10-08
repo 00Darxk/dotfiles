@@ -1,9 +1,11 @@
+#!/bin/bash
+
 threshhold_green=0
 threshhold_yellow=15
 threshhold_red=100
 
-update="Update"
-packages="Package(s)"
+update=$(jq -r '."waybar.scripts.getupdates.update"' $HOME/.config/dotlang/lang.jsonc)
+packages=$(jq -r '."waybar.scripts.getupdates.packages"' $HOME/.config/dotlang/lang.jsonc)
 
 # -------------------------------------------------------
 # Calculate the available updates pacman and aur (with yay)

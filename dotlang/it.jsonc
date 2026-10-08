@@ -2,11 +2,7 @@
     "locale.System_Locale.LANG": "it_IT.UTF-8",
     "locale.VC_Keymap": "it",
     "locale.X11_Layout": "it",
-    // neofetch/config.conf ?
-    // rofi/config.rasi // WIP
     "rofi.config.entry.placeholder": "Cerca",
-    // swaylock/config: change locale of timestamp
-    // waybar/modules*
     "waybar.modules.custom.github.tooltip-format": "Notifiche GitHub",
     "waybar.modules.custom.lock_screen.tooltip-format": "Schermata di Blocco",
     "waybar.modules.custom.power_btn.tooltip-format": "Opzioni di Spegnimento",
@@ -19,7 +15,7 @@
     "waybar.modules.custom.update.on-click-right": "Pacchetti Installati",
     "waybar.modules.custom.wl-gammarelay-temperature.tooltip-format": "Temperatura Schermo",
     "waybar.modules.backlight.tooltip-format": "Luminosità",
-    "waybar.modules.clock.format": "{:%H:%M:%S}", // todo update format
+    "waybar.modules.clock.format": "{:%H:%M:%S}",
     "waybar.modules.clock.locale": "it_IT.UTF-8",
     "waybar.modules.clock.format-alt": "{:L%a %d/%m/%y (%H:%M:%S)}",
     "waybar.modules.network.format-disconnected": "Disconnesso",
@@ -42,7 +38,6 @@
     "waybar.scripts.sysmaintenance.": "Svuotando i log di sistema1",
     "waybar.scripts.wolinfo.unknown": "Indirizzo sconosciuto",
     "waybar.scripts.wolinfo.wake": "Sveglia Host",
-    // wlogout/layout
     "wlogout.layout.lock.text": "Schermata di Blocco",
     "wlogout.layout.hibernate.text": "Ibernazione",
     "wlogout.layout.logout.text": "Disconnessione",

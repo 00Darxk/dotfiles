@@ -1,8 +1,8 @@
 #!/bin/bash
 
-knownHosts="Known hosts"
-addNewHost="Add new host"
-updating="added, updating list"
+knownHosts=$(jq -r '."waybar.scripts.addhost.knownHosts"' $HOME/.config/dotlang/lang.jsonc)
+addNewHost=$(jq -r '."waybar.scripts.addhost.addNewHost"' $HOME/.config/dotlang/lang.jsonc)
+updating=$(jq -r '."waybar.scripts.addhost.updating"' $HOME/.config/dotlang/lang.jsonc)
 
 cur=("$(cat $HOME/.config/.secrets/hostnames.txt)")
 echo "$knownHosts: \"'${cur[*]}'\""

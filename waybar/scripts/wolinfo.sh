@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-unknown="Unknown addr"
-wake="Wake host"
+unknown=$(jq -r '."waybar.scripts.wolinfo.unknown"' $HOME/.config/dotlang/lang.jsonc)
+wake=$(jq -r '."waybar.scripts.wolinfo.wake"' $HOME/.config/dotlang/lang.jsonc)
 
 ip=("$(cat "$HOME/.config/.secrets/ip-address.txt")")
 mac=("$(cat "$HOME/.config/.secrets/mac-address.txt")")

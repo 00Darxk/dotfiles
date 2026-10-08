@@ -1,10 +1,12 @@
+#!/bin/bash
+
 # This code is almost entirely taken from Mr. Cejas's blog: https://fernandocejas.com/blog/engineering/2022-03-30-arch-linux-system-maintance/
-updating="Updating system"
-clear="Clearing pacman cache"
-space="Space saved"
-orphans="Removing orphans packages"
-clearing="Clearing"
-logs="Clearing system logs"
+updating=$(jq -r '."waybar.scripts.sysmaintenance.updating"' $HOME/.config/dotlang/lang.jsonc)
+clear=$(jq -r '."waybar.scripts.sysmaintenance.clear"' $HOME/.config/dotlang/lang.jsonc)
+space=$(jq -r '."waybar.scripts.sysmaintenance.space"' $HOME/.config/dotlang/lang.jsonc)
+orphans=$(jq -r '."waybar.scripts.sysmaintenance.orphanss"' $HOME/.config/dotlang/lang.jsonc)
+clearing=$(jq -r '."waybar.scripts.sysmaintenance.updating"' $HOME/.config/dotlang/lang.jsonc)
+logs=$(jq -r '."waybar.scripts.sysmaintenance.log"' $HOME/.config/dotlang/lang.jsonc)
 
 echo "$updating"
 yay -Syu
