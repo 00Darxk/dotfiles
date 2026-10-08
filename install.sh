@@ -173,7 +173,7 @@ copy_configs() {
         fi
 
         echo -e "Copying config files...\n"
-        cp -R hypr kitty neofetch swayidle swaylock waybar wlogout rofi hyfetch.json "$home/.config/"
+        cp -R dotlang hypr kitty neofetch swayidle swaylock waybar wlogout rofi hyfetch.json "$home/.config/"
 
         # Set some files as exactable 
         chmod +x "$home/.config/hypr/scripts*"
@@ -203,7 +203,7 @@ download_gdrive(){
 }
 
 backup_configs() {
-    for cfg in hypr kitty neofetch swaylock waybar wlogout rofi hyfetch.json; do
+    for cfg in dotlang hypr kitty neofetch swaylock waybar wlogout rofi hyfetch.json; do
         [ ! -d "$home/.config/$cgf" ] || mv "$home/.config/$cfg" "$home/.config/$cfg.bak"
     done
 }
@@ -230,7 +230,7 @@ enable_tailscale_waybar() {
     read -rep 'Would you like to install and configure tailscale with waybar? [y/N]' TAIL
     if [[ $TAIL == "Y" || $TAIL == "y" ]] ; then
         echo "Installing tailscale package"
-        yay -S --noconfirm tailscale
+        sudo pacman -S --noconfirm tailscale
         
         sed -r -i "s|(^.*)//[ ]*([^$]*tailscale.*$)|\1\2|" "$home/.config/waybar/config.jsonc"
 

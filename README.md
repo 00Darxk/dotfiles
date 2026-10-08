@@ -96,12 +96,12 @@ You can view and customize the packages it will install by editing the [dependen
 | `discord`                 | All-in-one voice and text chat for games (optional) |
 | `steam`                   | Valve's digital software delivery system (optional) |
 | `spotify-launcher`        | Client for spotify's apt repository (optional) |
-| `chromium`                | Web browser (optional) |
-| `tailscale`               | Mesh VPN |
+| `firefox`                 | Web browser (optional) |
+| `tailscale`               | Mesh VPN (optional) |
 | `fzf`                     | CLI fuzzy finder |
 
 ```sh
-pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar swayidle ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp pamixer brightnessctl gvfs bluez bluez-utils blueman nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop discord steam spotify-launcher chromium tailscale fzf
+pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar swayidle ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp pamixer brightnessctl gvfs bluez bluez-utils blueman nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop discord steam spotify-launcher firefox tailscale fzf
 ```
 
 #### AUR packages
