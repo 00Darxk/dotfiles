@@ -26,7 +26,7 @@ list_updates=""
 if [ "$updates_arch" -gt 0 ]; then
     list_updates+="${list_updates_arch}"
     if [ "$updates_aur" -gt 0 ]; then
-        list_updates+="\n"
+        list_updates+=$'\n'
     fi
 fi
 
