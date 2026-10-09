@@ -13,6 +13,7 @@
         "window-rewrite": { // TODO complete
             "title<.*youtube.*>": " ", 
             "(.*) - Chromium": " ",
+            "(.*) — Mozilla Firefox": " ",
             "(.*)VSCodium": "󰨞 ",
             "class<Codium>": "󰨞 ",
             "(.*) - Thunar": " ",

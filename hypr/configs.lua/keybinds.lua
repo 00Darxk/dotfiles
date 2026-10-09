@@ -33,7 +33,7 @@ hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("~/.config/waybar/scripts/lau
 -- Open applications
 hl.bind(mainMod .. " + 1", hl.dsp.exec_cmd("thunar"))
 hl.bind(mainMod .. " + 2", hl.dsp.no_op())
-hl.bind(mainMod .. " + 3", hl.dsp.exec_cmd("chromium"))
+hl.bind(mainMod .. " + 3", hl.dsp.exec_cmd("firefox"))
 hl.bind(mainMod .. " + 4", hl.dsp.exec_cmd("discord"))
 hl.bind(mainMod .. " + 5", hl.dsp.exec_cmd("Telegram"))
 hl.bind(mainMod .. " + 6", hl.dsp.exec_cmd("steam"))
@@ -103,14 +103,19 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-
 -- Change background image
 for i = 1, 10 do
 	hl.bind(
 		mainMod .. " + SHIFT + CTRL + " .. i % 10,
-		hl.dsp.exec_cmd("wallpapers=(${HOME}/.config/hypr/wallpapers/*) && swaybg -m fill -i \"${wallpapers[" .. i - 1 .. "]}\"")
+		hl.dsp.exec_cmd(
+			'wallpapers=(${HOME}/.config/hypr/wallpapers/*) && swaybg -m fill -i "${wallpapers[' .. i - 1 .. ']}"'
+		)
 	)
 end
 
 -- Cycle through tooltip languages
-hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.exec_cmd("${HOME}/.config/hypr/scripts/cycle_language.sh && ${HOME}/.config/waybar/scripts/launch.sh"))
+hl.bind(
+	mainMod .. " + SHIFT + SPACE",
+	hl.dsp.exec_cmd("${HOME}/.config/hypr/scripts/cycle_language.sh && ${HOME}/.config/waybar/scripts/launch.sh")
+)
+

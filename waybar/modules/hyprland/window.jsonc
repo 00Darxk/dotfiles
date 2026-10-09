@@ -2,6 +2,7 @@
     "hyprland/window": {
         "format": "{}",
         "rewrite": {
+            "(.*) — Mozilla Firefox": " $1",
             "(.*) - Chromium": " $1",
             "(.*) - VSCodium": "󰨞 $1",
             "(.*) - Thunar": " $1",
