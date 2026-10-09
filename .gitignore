@@ -1,6 +1,8 @@
 # Secrets
 .secrets/
 
+dotlang/lang.jsonc
+
 # Temporary file, for testing configs
 *temp/
 .vscode/
