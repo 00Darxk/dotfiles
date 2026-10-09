@@ -3,7 +3,8 @@
         "format": "{icon}",        
         "format-icons": [""],
         "on-click": "swaylock",
-        "tooltip-format": "Schermata di Blocco",
+        "exec": "~/.config/waybar/scripts/get_tooltip.sh waybar.modules.custom.lock_screen.tooltip-format",
+        "return-type": "json",
         "tooltip": true
     }
 }

@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+tooltip=$(jq -r '."waybar.modules.custom.tailscale.tooltip-format"' $HOME/.config/dotlang/lang.jsonc)
+
 # Set your hostname in the appropriate file
 # disable in waybar if not needed
 
@@ -12,6 +14,7 @@ if [ -z $hostnames ]; then
   hostnames=$sshhost
 fi
 
+text="$tooltip:"$'\n<small>'
 for i in "${!hostnames[@]}"; do
   hostname="${hostnames[$i]}"
 
@@ -44,13 +47,14 @@ for i in "${!hostnames[@]}"; do
     text+=$'\n'
   fi
 done
+text+='</small>'
 
 jq -nc \
-  --arg text "$text" \
-  --arg tooltip "" \
+  --arg text "" \
+  --arg tooltip "$text" \
   --arg class "$css_class" \
   '{
-            text: $text,
-            tooltip: $tooltip,
-            class: $class
-        }'
+      text: $text,
+      tooltip: $tooltip,
+      class: $class
+  }'

@@ -1,8 +1,9 @@
 {
     "custom/rofi": {
-        "format": "{icon} Cerca",
-        "format-icons": [""],
-        "tooltip-format": "Applicazioni",
+        "format": " {}",
+        "format-icons": [""],
+        "exec": "jq -nc --arg tooltip $(jq -r '.\"waybar.modules.custom.rofi.tooltip-format\"' \"${HOME}/.config/dotlang/lang.jsonc\") --arg text $(jq -r '.\"waybar.modules.custom.rofi.format\"' \"${HOME}/.config/dotlang/lang.jsonc\") '{text: $text, tooltip: $tooltip}'",
+        "return-type": "json",
         "on-click": "rofi -show drun"
     }
 }
