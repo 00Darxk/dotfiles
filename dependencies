@@ -1,6 +1,6 @@
-hyprland 
-kitty 
-waybar-git
+hyprland
+kitty
+waybar
 swaybg
 swaylock-effects
 rofi-wayland
@@ -28,7 +28,7 @@ xdg-desktop-portal-hyprland
 wl-gammarelay
 hyfetch
 power-profiles-daemon
-# sddm # todo add sddm setup during installation 
+sddm # TODO add sddm setup during installation 
 ttf-fira-code
 ttf-font-awesome
 jq

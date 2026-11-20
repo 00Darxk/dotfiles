@@ -14,29 +14,20 @@ Clone the repository to copy and use these configuration files.
 git clone https://github.com/00Darxk/dotfiles.git
 ```
 
-You can install either the english (```main-en``` branch) or italians (```main-it``` branch) tooltip version directly:
-
-```sh
-git clone --single-branch --branch main-{lang} https://github.com/00Darxk/dotfiles.git
-```
-
-<!-- Or you can run the installation script from the ```main``` branch to choose which language to use during install.  -->
-Will eventually deprecate those branches, and just use a ```set-lang``` script to write the language changes on the copied configs and set the locale. It would be possibile to change language by simply re-running the script and copying the affected configs.
 
 # Installation
 
 ## Automatic
 
-Run the [install script](./install.sh), it will try to install all needed [dependencies](#dependencies)
-> [!IMPORTANT]
-> This script does some error checking, and it tries to back up existing configs. Though it isn't perfect.
+Run the [install script](./install.sh), it will try to install all needed [dependencies](#dependencies), backup existing configs, and choose config language
+
 
 ```sh
 cd dotfiles
 ./install.sh
 ```
 
-Yay need to be installed, as its used by the script to install all the packages. Refer to the official [yay page](https://github.com/Jguer/yay?tab=readme-ov-file#installation) for installation, or you can install yay through the script, if you already have git installed.
+Yay needs to be installed, as its used by the script to install all the packages. Refer to the official [yay page](https://github.com/Jguer/yay?tab=readme-ov-file#installation) for installation, or you can install yay through the script, if you already have git installed.
 
 You can install the configs under another user, by providing the username to the script:
 
@@ -93,7 +84,6 @@ You can view and customize the packages it will install by editing the [dependen
 | `jq`                      | CLI JSON processor |
 | `btop`                    | Monitor of system resources |
 | `telegram-desktop`        | Official Telegram Desktop client (optional) |
-| `discord`                 | All-in-one voice and text chat for games (optional) |
 | `steam`                   | Valve's digital software delivery system (optional) |
 | `spotify-launcher`        | Client for spotify's apt repository (optional) |
 | `firefox`                 | Web browser (optional) |
@@ -101,7 +91,7 @@ You can view and customize the packages it will install by editing the [dependen
 | `fzf`                     | CLI fuzzy finder |
 
 ```sh
-pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar swayidle ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp pamixer brightnessctl gvfs bluez bluez-utils blueman nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop discord steam spotify-launcher firefox tailscale fzf
+pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar swayidle ttf-jetbrains-mono-nerd polkit-gnome starship swappy grim slurp pamixer brightnessctl gvfs bluez bluez-utils blueman nwg-look xfce4-settings xdg-desktop-portal-hyprland wl-gammarelay hyfetch power-profiles-daemon sddm tff-fira-code tff-font-awesome wol telegram-desktop steam spotify-launcher firefox tailscale fzf
 ```
 
 #### AUR packages
@@ -116,7 +106,7 @@ pacman -S hyprland kitty waybar swaybg rofi-wayand swaync thunar swayidle ttf-je
 | `vscodium-bin`            | Binary releases of VS Code without MS branding/telemetry/licensing (optional) |
 
 ```sh
-yay -S wlogout swaylock-effects dracula-gtk-theme dracula-icons-git sddm-eucalyptus-drop notion-app-electron vscodium-bin
+yay -S wlogout swaylock-effects dracula-gtk-theme dracula-icons-git sddm-eucalyptus-drop vscodium-bin
 ```
 
 Or your AUR helper of choice.
@@ -194,7 +184,7 @@ It contains explicit keybinds for laptop multimedia keys for audio, LCD brightne
 | <kbd>Super</kbd>+<kbd>Space</kbd>              | Show the graphical app launcher and window switcher using rofi |
 | <kbd>Super</kbd>+<kbd>S</kbd>                  | Take a screenshot                                 |
 | <kbd>Super</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> | Reload waybar                                     |
-| <kbd>Super</kbd>+<kbd>[1~9]</kbd>              | Open Thunar (1), Chromium (3), Discord (4), Telegram Desktop (5), Steam (6), VSCodium (8), Spotify Launcher (9) |
+| <kbd>Super</kbd>+<kbd>[1~9]</kbd>              | Open Thunar (1), Firefox (3), Telegram Desktop (5), Steam (6), VSCodium (8), Spotify Launcher (9) |
 | <kbd>Super</kbd>+<kbd>Ctrl</kbd>+<kbd>0</kbd>  | Reset screen temperature to 6500K                 |
 | <kbd>Super</kbd>+<kbd>Ctrl</kbd>+<kbd>↑</kbd>  | Increase screen temperature by 500K               |
 | <kbd>Super</kbd>+<kbd>Ctrl</kbd>+<kbd>↓</kbd>  | Decrease screen temperature by 500K               |
