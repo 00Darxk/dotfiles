@@ -34,7 +34,7 @@ hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("~/.config/waybar/scripts/lau
 hl.bind(mainMod .. " + 1", hl.dsp.exec_cmd("thunar"))
 hl.bind(mainMod .. " + 2", hl.dsp.no_op())
 hl.bind(mainMod .. " + 3", hl.dsp.exec_cmd("firefox"))
-hl.bind(mainMod .. " + 4", hl.dsp.exec_cmd("discord"))
+hl.bind(mainMod .. " + 4", hl.dsp.no_op())
 hl.bind(mainMod .. " + 5", hl.dsp.exec_cmd("Telegram"))
 hl.bind(mainMod .. " + 6", hl.dsp.exec_cmd("steam"))
 hl.bind(mainMod .. " + 7", hl.dsp.no_op())
@@ -118,4 +118,3 @@ hl.bind(
 	mainMod .. " + SHIFT + SPACE",
 	hl.dsp.exec_cmd("${HOME}/.config/hypr/scripts/cycle_language.sh && ${HOME}/.config/waybar/scripts/launch.sh")
 )
-
