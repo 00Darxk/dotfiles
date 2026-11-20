@@ -3,6 +3,7 @@
         "format": "{}",
         "rewrite": {
             "(.*) — Mozilla Firefox": " $1",
+            "Mozilla Firefox": "  Mozilla Firefox",
             "(.*) - Chromium": " $1",
             "(.*) - VSCodium": "󰨞 $1",
             "(.*) - Thunar": " $1",
